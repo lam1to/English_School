@@ -1,0 +1,836 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+min-height: 100vh;
+scroll-behavior: smooth;
+text-rendering: optimizeSpeed;
+line-height: 1.5;
+/* overflow: hidden; */
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+list-style: none;
+padding: 0;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+/* a:not([class]) {
+text-decoration-skip-ink: auto;
+} */
+a{
+    text-decoration:none;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+max-width: 100%;
+display: block;
+}
+
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+font: inherit;
+}
+
+
+/* Начало всего */
+/* Служебные классы начало */
+body{
+    background-color: #ffff;
+    font-family: 'Montserrat';
+}
+.wrapper {
+}
+._container{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+.margin-safety{
+    margin: 0px 15px 0px 0px ;
+}
+
+/* Служебные классы конец */
+
+
+
+/*Шапка начало */
+
+.header_main {
+    background-color: #95ECB3;
+    height: 137px;
+    margin-bottom: 164px;
+}
+.header_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header_logo {
+    margin: 0px 15px 0px 0px;
+}
+.header_sign_row {
+    display: flex;
+    font-weight: 600;
+    line-height: 30px;
+    align-items: center;
+}
+.header_sign_row a{
+    color: black;
+}
+.header_sign_row_no-authorized :not(:last-child){
+    margin: 0px 27px 0px 0px;
+
+}
+.header_buttom_sign_in{
+    border: 2px solid black;
+    padding: 12px 20px;
+    font-size: 25px;
+}
+.header_buttom_sign_in:hover{
+    color: #005995;
+    transition: 1s;
+    border-radius: 25%;
+}
+.header_buttom_sign_in:not(:hover){
+    transition: 1s;
+}
+
+.header_buttom_sign_up{
+    font-size: 25px;
+}
+.header_buttom_sign_up a:hover{
+    color: #005995;
+    margin-left: 15px;
+    font-size: 23px;
+    transition: 1s;
+}
+.header_buttom_sign_up a:not(:hover){
+    transition: 1s;
+}
+
+
+@media (max-width:990px){
+    .header_buttom_sign_in{
+        padding: 10px 18px;
+        font-size: 22px;
+    }
+    .header_buttom_sign_in:hover{
+        font-size: 20px;
+    }
+    .header_buttom_sign_up{
+        font-size: 22px;
+    }
+    .header_buttom_sign_up a:hover{
+        font-size: 20px;
+    }
+}
+@media (max-width:600px){
+    .header_buttom_sign_in{
+        padding: 6px 14px;
+        font-size: 18px;
+    }
+    .header_buttom_sign_in:hover{
+        font-size: 16px;
+    }
+    .header_buttom_sign_up{
+        font-size: 18px;
+    }
+    .header_buttom_sign_up a:hover{
+        font-size: 16px;
+    }
+}
+@media (max-width:450px){
+    .header_buttom_sign_in{
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+    .header_buttom_sign_up{
+        font-size: 12px;
+    }
+}
+/* Шапка конец */
+
+/* Старт изучения англ начало */
+.start_main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 346px 0px ;
+}
+.start_main_img {
+    max-width: 636px;
+    margin:0px 10% 0px 0px ;
+    /* z-index: 1; */
+}
+
+
+.start_main_learn_row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.start_main_learn_title {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    margin: 0px 0px 20px 0px;
+}
+.start_main_learn_text {
+    font-weight: 500;
+font-size: 30px;
+line-height: 37px;
+margin: 0px 0px 60px 0px;
+}
+.start_main_learn_buttom_link{
+    align-self: flex-start;
+}
+.start_main_learn_buttom_start {
+    margin: 2px 0px 0px 0px;
+   
+}
+.blue_buttom{
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 43px;
+    box-sizing: border-box;
+    padding: 18px 104px;
+    background-color: #005995;
+    border-radius: 15px;
+    color: #ffff;
+}
+.blue_buttom:hover{
+   transition: 1s;
+   padding: 16px 102px;
+    margin: 6px 0px 0px 0px;
+    color: #95ECB3;
+}
+.blue_buttom:not(:hover){
+    transition: 1s;
+}
+@media (max-width:1300px){
+   
+    .start_main_img {
+        max-width: 500px;
+        margin:0px 55px 0px 0px ;
+        transition: 0.5s;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 36px;
+        line-height: 44px;
+        margin: 0px 0px 18px 0px;
+    }
+    .start_main_learn_text {
+    font-size: 26px;
+    line-height: 33px;
+    margin: 0px 0px 54px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 31px;
+        line-height: 39px;
+        box-sizing: border-box;
+        padding: 14px 100px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+    .start_main_learn_row {
+        /* width: 100%; */
+        justify-content: center;
+        align-items: center;
+    }
+    .start_main_learn_buttom_link{
+        align-self: center;
+    }
+}
+
+@media (max-width:1050px){
+    .start_main_img {
+        max-width: 450px;
+        margin:0px 64px 0px 0px ;
+        transition: 0.5s;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 32px;
+        line-height: 40px;
+        margin: 0px 0px 18px 0px;
+    }
+    .start_main_learn_text {
+    font-size: 22px;
+    line-height: 29px;
+    margin: 0px 0px 54px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 27px;
+        line-height: 35px;
+        box-sizing: border-box;
+        padding: 14px 100px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+}
+@media (max-width:960px){
+    .start_main_img {
+        max-width: 350px;
+        margin:0px 50px 0px 0px ;
+        transition: 0.5s;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 26px;
+        line-height: 32px;
+        margin: 0px 0px 18px 0px;
+    }
+    .start_main_learn_text {
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 35px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 22px;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding: 8px 80px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+}
+
+@media (max-width:750px){
+    .start_main_img {
+        max-width: 550px;
+        margin:0px 50px 0px 0px ;
+        transition: 0.5s;
+        margin-bottom: 20px;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 26px;
+        line-height: 32px;
+        margin: 0px 0px 18px 0px;
+        text-align: center;
+    }
+    .start_main_learn_text {
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 35px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 22px;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding: 8px 80px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+    .start_main_learn_row {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .start_main_learn_buttom_link{
+        align-self: center;
+    }
+}
+
+/* Старт изучения англ конец  */
+
+/* Почему нужен англ начало */
+.why_english {
+
+    margin: 0px 0px 317px 0px;
+}
+
+.why_english_block_main{
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+}
+
+.why_english_title {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    text-align: center;
+    margin: 0px 0px 70px 0px;
+}
+.why_english_title-blue{
+    font-weight: 800;
+    color: #005995;
+}
+.why_english_list_one{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.why_english_block {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.why_english_block:not(:last-child){
+    margin: 0px 0px 127px 0px;
+}
+.why_english_block-img_absolute {
+    position: absolute;
+    z-index: 1;
+    left: -140px;
+    top: -202px;
+}
+.why_english_block_for_title{
+    z-index: 10;
+}
+.why_english_block-img_absolute img{
+    max-width: 568px;
+    overflow: hidden;
+}
+.why_english_block-title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0px 0px 27px 0px;
+}
+.why_english_block-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+}
+.why_english_img {
+    margin: 0px 62px 0px 0px;
+    display: flex;
+    align-items: center;
+    
+}
+.why_english_img img{
+    max-width: 361px;
+}
+.why_english_list_two {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    /* width: 33%; */
+}
+.block_max{
+    flex: 1 1 auto;
+}
+
+@media (max-width:1350px){
+   
+    .why_english_list_one{
+        margin: 0px 0px 0px 50px;
+    }
+
+    .why_english_block-title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+        margin: 0px 0px 20px 0px;
+        transition: 1s;
+    }
+    .why_english_block-text {
+        transition: 1s;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17px;
+    
+    }
+    .why_english_block-img_absolute img{
+        transition: 1s;
+        max-width: 400px;
+    }
+    .why_english_block-img_absolute{
+        left: -100px;
+        top: -142px;
+    }
+    .why_english_img img{
+        max-width: 321px;
+    }
+}
+
+
+/* Почему нужен англ конец */
+
+/* footer начало */
+.footer_block {
+    background: linear-gradient(45deg , #3FAD7F,#5AE380);
+}
+
+.footer_main-block {
+    height: 447px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer_titel {
+    font-weight: 800;
+font-size: 40px;
+line-height: 49px;
+}
+.footer_titel_bold{
+    font-weight: 900;
+font-size: 40px;
+line-height: 49px;
+}
+.footer_buttom {
+    font-weight: 700;
+font-size: 35px;
+line-height: 43px;
+}
+/* footer конец */
+
+
+
+
+/* Блок login начало */
+
+/* main_login начало */
+.main_login {
+    padding: 0px 0px 200px 0px;
+    /* border: 1px solid black; */
+}
+.main_login-container {
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 100px; */
+}
+
+.block_login_container{
+    width: 50%;
+}
+.block_login {
+    padding: 0px 0px 0px 60px;
+    max-width: 984px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    z-index: 10;
+}
+.block_login-title {
+    margin: 63px 0px 0px 0px ;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+}
+.block_login-sub_titel {
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 43px;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0px 0px 36px 0px;
+}
+
+.login-form_margin:not(:last-child){
+    margin: 0px 0px 12px 0px;
+}
+.login-form_margin:last-child{
+    margin: 0px 0px 33px 0px;
+}
+
+
+.block_login-block-input {
+    /* box-sizing: border-box; */
+    padding: 18px 0px 18px 34px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+    color: rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    max-width: 456px;
+    width: 100%;
+}
+
+
+.block_login-link_button {
+}
+.block_login-button {
+    margin: 0px 0px 89px 0px;
+    
+}
+.blue_button-little {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: white;
+    max-width: 263px;
+    width: 100%;
+    height: 57px;
+    background-color: #005995;
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue_button-little:hover{
+    transition: 1s; 
+    max-width: 260px;
+    height: 54px;
+    color: #95ECB3;
+ }
+ .blue_button-little:not(:hover){
+     transition: 1s;
+ }
+
+.block_login-img_absolute img{
+    position: absolute;
+    top: 170px ;
+    left: 752px;
+    z-index: 1;
+}
+/* main_login конец */
+
+/* regist начало */
+.block_login_registr-img_absolute img{
+    position: absolute;
+    top: 410px ;
+    left: 752px;
+    z-index: 1;
+}
+
+/* regist конец */
+/* Блок login конец  */
+
+
+/* шапка для зарегистр  начало*/
+
+.header_buttom{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+}
+.header_buttom a:hover{
+    color: #005995;
+    transition: 1s;
+}
+.header_buttom a:not(:hover){
+    transition: 1s;
+}
+
+.header_buttom-activ{
+    font-weight: 800;
+}
+
+.header_buttom:not(:last-child){
+    margin: 0px 36px 0px 0px;
+}
+
+/* шапка для зарегистр  конец*/
+
+/* select-level block начало*/
+
+
+.block_select_level {
+    height: 100%;
+    margin: 0px 0px 62px 0px;
+}
+.select_level-container {}
+
+.block_drop-down_menu {
+    width: 100%;
+    margin: 0px 0px 62px 0px ;
+    display: flex;
+    justify-content: space-between;
+}
+.drop-down_english-level {
+    width: 456px;
+}
+.block_drop-down_menu-title{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0px 0px 30px 0px;
+}
+.drop-down_menu{
+ 
+}
+.select_level-menu-arrow{
+    position: relative;
+}
+.select_level-menu-arrow::before{
+    content: "";
+    position: absolute;
+    top: 24px;
+    right: 31px;
+    /* right: 15px; */
+    /* transform: translateY(-50%); */
+    display: block;
+    /* width: 20px; */
+    /* height: 20px; */
+    /* background-color: #005995; */
+    pointer-events: none;
+
+    /* рисуем треугольник */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 9px 0 9px;
+    border-color: #000000 transparent transparent transparent;
+
+}
+
+.select-level_button{
+}
+
+
+.select_level-menu{
+    appearance: none;
+    cursor: pointer;
+    width:100%;
+    max-width: 456px;
+    height: 62px;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 0px 0px 0px 36px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* select-level block конец  */
+
+/* choice_test начало */
+.choice_test {
+    margin-bottom: 100px;
+}
+.choice_test-container {
+}
+
+.choice_test-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.block_task-test {
+    max-width: 552px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #E6ECFF;
+    border-radius: 15px;
+    position: relative;
+    margin-right: 13px;
+}
+.block_task-test_container{
+    padding: 32px 45px 0px 25px ;
+}
+.block_task-test_title {
+    display: flex;
+    margin: 0px 0px 36px 0px ;
+}
+.block_task-test_title-number {
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    margin: 0px 10px 0px 0px;
+}
+.block_task-test_title-text {
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+}
+.block_task-test_level {
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    margin: 0px 0px 123px 0px;
+}
+.block_task-test_level_b-word{
+    font-weight: 500;
+}
+.block_task-test-button {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    width: 552px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    color: #FFFFFF;
+    height: 73px;
+    background-color: #005995;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* choice_test конец  */
+
+
+
+
+/* Start test начало */
+.test_tittle_main {
+}
+.title_main_container {
+}
+._container {
+}
+.test_title {
+    font-weight: 600;
+font-size: 30px;
+line-height: 37px;
+/* identical to box height */
+
+
+color: #002EA6;
+
+}
+
+/* Start test конец */
+/* Конец всего */
