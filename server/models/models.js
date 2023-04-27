@@ -48,6 +48,26 @@ const Rule = sequelize.define('rule',{
 })
 
 
+Rule.hasMany(Grammar)
+Grammar.belongsTo(Rule)
+
+Question.hasMany(Test)
+Test.belongsTo(Question)
+
+Answer.hasMany(Question)
+Question.belongsTo(Answer)
+
+
+module.exports = {
+    User,
+    Test,
+    Question,
+    Answer,
+    Vocabulary,
+    Grammar,
+    Rule
+}
+
 
 
 
