@@ -1,9 +1,10 @@
 const Router = require('express')
 const router = new Router()
+const grammarController = require('../controllers/grammarController')
 
-router.post('/')
-router.get('/')
-router.get('/:id')
+router.post('/', grammarController.create)
+router.get('/', grammarController.getAll)
+router.get('/:id', grammarController.getOne)
 
 
 module.exports = router;
