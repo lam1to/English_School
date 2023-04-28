@@ -1,11 +1,11 @@
 const sequelize = require('../db')
-const {DataTypes} = require('sequelize')
+const {DataTypes, DATE} = require('sequelize')
 
 
 const User = sequelize.define('user',{
     id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     email: {type: DataTypes.STRING, unique: true},
-    password: {type: DataTypes.STRING},
+    password: {type: DataTypes.STRING, allowNull: false},
     role:{type:DataTypes.STRING, defaultValue: "USER"}
 })
 
@@ -19,7 +19,7 @@ const Test = sequelize.define('test',{
 
 const Question = sequelize.define('question',{
     id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    question: {type: DataTypes.STRING}
+    question: {type: DataTypes.STRING, allowNull: false}
 })
 
 
@@ -32,8 +32,9 @@ const Vocabulary = sequelize.define('vocabulary',{
     id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     topic: {type: DataTypes.STRING, unique: true},
     description: {type: DataTypes.STRING, defaultValue: ""},
-    img: {type:DataTypes.STRING},
-    content: {type: DataTypes.STRING}
+    content: {type: DataTypes.STRING,defaultValue: ""},
+    img: {type:DataTypes.STRING,defaultValue: ""}
+    
 })
 
 const Grammar = sequelize.define('grammar',{
@@ -44,19 +45,17 @@ const Grammar = sequelize.define('grammar',{
 const Rule = sequelize.define('rule',{
     id:{type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     topic: {type: DataTypes.STRING, unique: true},
-    content: {type: DataTypes.STRING}
+    content: {type: DataTypes.STRING,allowNull: false}
 })
 
+Grammar.hasMany(Rule, {as: 'rules'})
+Rule.belongsTo(Grammar)
 
-Rule.hasMany(Grammar)
-Grammar.belongsTo(Rule)
+Test.hasMany(Question)
+Question.belongsTo(Test)
 
-Question.hasMany(Test)
-Test.belongsTo(Question)
-
-Answer.hasMany(Question)
-Question.belongsTo(Answer)
-
+Question.hasMany(Answer)
+Answer.belongsTo(Question)
 
 module.exports = {
     User,

@@ -2,12 +2,16 @@ const {Test} = require('../models/models')
 const ApiError = require('../error/ApiError')
 class TestController{
     async create(req,res){
-        const {name} = req.body
-        const test = await Test.create({name})
+        const {topic,difficulte,level} = req.body
+        const test = await Test.create({topic,difficulte,level})
         return res.json({test})
     }
     async getAll(req,res){
-        const tests = await Test.findAll()
+        let {limit, page} = req.query
+        page = page || 1
+        limit = limit || 9
+        let offset = page * limit - limit
+        const tests = await Test.findAndCountAll({limit,offset})
         return res.json(tests)
     }
     async getOne(req,res){

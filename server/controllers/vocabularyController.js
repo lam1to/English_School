@@ -1,17 +1,29 @@
 const {Vocabulary} = require('../models/models')
 const ApiError = require('../error/ApiError')
+const uuid = require('uuid')
+const path = require('path')
+
 class VocabularyController{
-    async create(req,res){
-        const {name} = req.body
-        const vocabulary = await Test.create({name})
-        return res.json({vocabulary})
+    async create(req,res, next){
+        try{
+            const {topic,description,content} = req.body
+            const {img} = req.files
+            let fileName = uuid.v4() + ".jpg"
+            img.mv(path.resolve(__dirname, '..', 'static', fileName))
+            const vocabulary = await Vocabulary.create({topic,description,content,img:fileName})
+            return res.json({vocabulary})
+        }
+        catch(e){
+            next(ApiError.badRequest(e))
+        }
+       
     }
     async getAll(req,res){
-        const vocabularyAll = await Test.findAll()
+        const vocabularyAll = await Vocabulary.findAll()
         return res.json(vocabularyAll)
     }
     async getOne(req,res){
-        const vocabularyOne = await Test.findOne()
+        const vocabularyOne = await Vocabulary.findOne()
         return res.json(vocabularyOne)
     }
 }
