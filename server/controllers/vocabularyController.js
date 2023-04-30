@@ -14,7 +14,7 @@ class VocabularyController{
             return res.json({vocabulary})
         }
         catch(e){
-            next(ApiError.badRequest(e))
+            next(ApiError.badRequest('произошла ошибка'))
         }
        
     }
