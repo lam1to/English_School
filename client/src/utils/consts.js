@@ -1,0 +1,8 @@
+export const ADMIN_ROUTE = '/admin'
+export const LOGIN_ROUTE = '/login'
+export const REGISTR_ROUTE = '/registration'
+export const EXERCISES_ROUTE = '/exercises'
+export const MAIN_ROUTE = '/main'
+export const TEST_ROUTE = '/test'
+export const VOCABULARY_ROUTE = '/vocabulary'
+export const GRAMMAR_ROUTE = '/grammar'
