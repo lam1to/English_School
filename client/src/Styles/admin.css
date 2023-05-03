@@ -1,0 +1,57 @@
+.block_admin-button {
+    /* margin: 0px 0px 89px 0px; */
+}
+.block_admin-item_button{
+    max-width: 263px;
+    width: 100%;
+}
+.blue_button-little {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: white;
+    height: 57px;
+    background-color: #005995;
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue_button-little:hover{
+    transition: 1s; 
+    max-width: 260px;
+    height: 54px;
+    color: #95ECB3;
+ }
+ .blue_button-little:not(:hover){
+     transition: 1s;
+ }
+
+
+ .main_admin {
+}
+.main_container {
+}
+._container {
+}
+.admin_row {
+}
+.admin_item_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 0px 10px 0px 10px ;
+    height: 110px;
+
+}
+.admin_item_container:not(:last-child){
+    margin-bottom: 40px;
+}
+.admin_item-name {
+    font-size: 50px;
+}
+

@@ -1,8 +1,9 @@
 import { Admin } from "./pages/Admin"
-import Auth from "./pages/Auth"
 import Exercises from "./pages/Exercises"
 import Grammar from "./pages/Grammar"
+import Login from "./pages/Login"
 import Main from "./pages/Main"
+import Registration from "./pages/Registration"
 import Vocabulary from "./pages/Vocabulary"
 import { ADMIN_ROUTE, EXERCISES_ROUTE, GRAMMAR_ROUTE, REGISTR_ROUTE, VOCABULARY_ROUTE, MAIN_ROUTE, LOGIN_ROUTE} from "./utils/consts"
 
@@ -28,11 +29,11 @@ export const authRoutes = [
 export const publicRoutes = [
     {
         path: LOGIN_ROUTE,
-        Component: Auth
+        Component: Login
     },
     {
         path: REGISTR_ROUTE,
-        Component: Auth
+        Component: Registration
     },
     {
         path: MAIN_ROUTE,

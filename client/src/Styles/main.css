@@ -1,0 +1,338 @@
+/* Старт изучения англ начало */
+.start_main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px 346px 0px ;
+}
+.start_main_img {
+    max-width: 636px;
+    margin:0px 10% 0px 0px ;
+    /* z-index: 1; */
+}
+
+
+.start_main_learn_row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.start_main_learn_title {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 49px;
+    margin: 0px 0px 20px 0px;
+}
+.start_main_learn_text {
+    font-weight: 500;
+font-size: 30px;
+line-height: 37px;
+margin: 0px 0px 60px 0px;
+}
+.start_main_learn_buttom_link{
+    align-self: flex-start;
+}
+.start_main_learn_buttom_start {
+    margin: 2px 0px 0px 0px;
+   
+}
+.blue_buttom{
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 43px;
+    box-sizing: border-box;
+    padding: 18px 104px;
+    background-color: #005995;
+    border-radius: 15px;
+    color: #ffff;
+}
+.blue_buttom:hover{
+   transition: 1s;
+   padding: 16px 102px;
+    margin: 6px 0px 0px 0px;
+    color: #95ECB3;
+}
+.blue_buttom:not(:hover){
+    transition: 1s;
+}
+@media (max-width:1300px){
+   
+    .start_main_img {
+        max-width: 500px;
+        margin:0px 55px 0px 0px ;
+        transition: 0.5s;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 36px;
+        line-height: 44px;
+        margin: 0px 0px 18px 0px;
+    }
+    .start_main_learn_text {
+    font-size: 26px;
+    line-height: 33px;
+    margin: 0px 0px 54px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 31px;
+        line-height: 39px;
+        box-sizing: border-box;
+        padding: 14px 100px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+    .start_main_learn_row {
+        /* width: 100%; */
+        justify-content: center;
+        align-items: center;
+    }
+    .start_main_learn_buttom_link{
+        align-self: center;
+    }
+}
+
+@media (max-width:1050px){
+    .start_main_img {
+        max-width: 450px;
+        margin:0px 64px 0px 0px ;
+        transition: 0.5s;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 32px;
+        line-height: 40px;
+        margin: 0px 0px 18px 0px;
+    }
+    .start_main_learn_text {
+    font-size: 22px;
+    line-height: 29px;
+    margin: 0px 0px 54px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 27px;
+        line-height: 35px;
+        box-sizing: border-box;
+        padding: 14px 100px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+}
+@media (max-width:960px){
+    .start_main_img {
+        max-width: 350px;
+        margin:0px 50px 0px 0px ;
+        transition: 0.5s;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 26px;
+        line-height: 32px;
+        margin: 0px 0px 18px 0px;
+    }
+    .start_main_learn_text {
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 35px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 22px;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding: 8px 80px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+}
+
+@media (max-width:750px){
+    .start_main_img {
+        max-width: 550px;
+        margin:0px 50px 0px 0px ;
+        transition: 0.5s;
+        margin-bottom: 20px;
+        /* z-index: 1; */
+    }
+    .start_main_learn_title {
+        font-size: 26px;
+        line-height: 32px;
+        margin: 0px 0px 18px 0px;
+        text-align: center;
+    }
+    .start_main_learn_text {
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 35px 0px;
+    }
+    .start_main_learn_buttom_start {
+        margin: 2px 0px 0px 0px;
+        font-size: 22px;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding: 8px 80px;
+        background-color: #005995;
+        border-radius: 15px;
+        color: #ffff;
+    }
+    .start_main_learn_row {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .start_main_learn_buttom_link{
+        align-self: center;
+    }
+}
+
+/* Старт изучения англ конец  */
+
+/* Почему нужен англ начало */
+.why_english {
+
+    margin: 0px 0px 317px 0px;
+}
+
+.why_english_block_main{
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+}
+
+.why_english_title {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    text-align: center;
+    margin: 0px 0px 70px 0px;
+}
+.why_english_title-blue{
+    font-weight: 800;
+    color: #005995;
+}
+.why_english_list_one{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.why_english_block {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.why_english_block:not(:last-child){
+    margin: 0px 0px 127px 0px;
+}
+.why_english_block-img_absolute {
+    position: absolute;
+    z-index: 1;
+    left: -140px;
+    top: -202px;
+}
+.why_english_block_for_title{
+    z-index: 10;
+}
+.why_english_block-img_absolute img{
+    max-width: 568px;
+    overflow: hidden;
+}
+.why_english_block-title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0px 0px 27px 0px;
+}
+.why_english_block-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+}
+.why_english_img {
+    margin: 0px 62px 0px 0px;
+    display: flex;
+    align-items: center;
+    
+}
+.why_english_img img{
+    max-width: 361px;
+}
+.why_english_list_two {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    /* width: 33%; */
+}
+.block_max{
+    flex: 1 1 auto;
+}
+
+@media (max-width:1350px){
+   
+    .why_english_list_one{
+        margin: 0px 0px 0px 50px;
+    }
+
+    .why_english_block-title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+        margin: 0px 0px 20px 0px;
+        transition: 1s;
+    }
+    .why_english_block-text {
+        transition: 1s;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17px;
+    
+    }
+    .why_english_block-img_absolute img{
+        transition: 1s;
+        max-width: 400px;
+    }
+    .why_english_block-img_absolute{
+        left: -100px;
+        top: -142px;
+    }
+    .why_english_img img{
+        max-width: 321px;
+    }
+}
+
+
+/* Почему нужен англ конец */
+
+/* footer начало */
+.footer_block {
+    background: linear-gradient(45deg , #3FAD7F,#5AE380);
+}
+
+.footer_main-block {
+    height: 447px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer_titel {
+    font-weight: 800;
+font-size: 40px;
+line-height: 49px;
+}
+.footer_titel_bold{
+    font-weight: 900;
+font-size: 40px;
+line-height: 49px;
+}
+.footer_buttom {
+    font-weight: 700;
+font-size: 35px;
+line-height: 43px;
+}
+/* footer конец */
