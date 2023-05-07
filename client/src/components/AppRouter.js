@@ -3,10 +3,11 @@ import {Routes,Route,Navigate, BrowserRouter} from 'react-router-dom'
 import { authRoutes, publicRoutes } from '../Routes'
 import Main from "../pages/Main"
 import { Context } from '..'
+import { MAIN_ROUTE } from '../utils/consts'
 
 const AppRouter = () => {
   const {user} = useContext(Context)
-  console.log(user)
+  // console.log(user)
     return (
         <Routes>
             {user.isAuth && authRoutes.map(({path, Component}) => 
@@ -15,7 +16,7 @@ const AppRouter = () => {
          {publicRoutes.map(({path, Component}) => 
             <Route key={path} path={path} element={<Component/>}/>
         )}
-            <Route path="*" element = {<Navigate to = '/main'/>}/>
+            <Route path="*" element = {<Navigate to = {MAIN_ROUTE}/>}/>
         </Routes>
   )
 }

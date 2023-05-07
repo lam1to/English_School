@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 const CreateVocabulary = ({show, onHide}) => {
   return (
     <Modal
+      
       show = {show}
       onHide = {onHide}
       size="lg"

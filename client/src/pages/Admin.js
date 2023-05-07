@@ -9,6 +9,9 @@ import '../Styles/bootstrap.min.css'
 
 export const Admin = () => {
   const [show, setShow] = useState(false);
+  const [grammarVisible, setGrammarVisible] = useState(false)
+  const [testVisible, setTestVisible] = useState(false)
+  const [vocabularyVisible, setVocabularyVisible] = useState(false)
   const role = 'adnmin'
   const handleClose = () => setShow(false);
   const handleShow = () =>{ 
@@ -24,7 +27,7 @@ export const Admin = () => {
                       Add grammar item
                   </div>
                   <a   className="block_admin-item_button">
-                      <div onClick={handleShow} className="blue_button-little" >
+                      <div onClick={() => setGrammarVisible(true)} className="blue_button-little" >
                           Add
                       </div>
                   </a>
@@ -34,7 +37,7 @@ export const Admin = () => {
                       Add vocabulary item
                   </div>
                   <a  className="block_admin-item_button">
-                      <div className="blue_button-little" >
+                      <div onClick={() => setVocabularyVisible(true)} className="blue_button-little" >
                           Add
                       </div>
                   </a>
@@ -44,15 +47,15 @@ export const Admin = () => {
                       Add test item
                   </div>
                   <a  className="block_admin-item_button">
-                      <div className="blue_button-little" >
+                      <div onClick={() =>setTestVisible(true)} className="blue_button-little" >
                           Add
                       </div>
                   </a>
               </div>
           </div>
-          <CreateGrammar />
-          <CreateVocabulary show = {false}/>
-          <CreateTest/>
+          <CreateGrammar show={grammarVisible} onHide={() =>setGrammarVisible(false)}/>
+          <CreateVocabulary show = {vocabularyVisible} onHide={ () =>setVocabularyVisible(false)}/>
+          <CreateTest show = {testVisible} onHide={() =>setTestVisible(false)}/>
       </div>
       
     </div>

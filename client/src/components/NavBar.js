@@ -11,6 +11,12 @@ import { Link } from 'react-router-dom'
 
 
 const NavBar = observer(() => {
+    const logOut = () => {
+        user.setUser({})
+        user.setIsAuth(false)
+        localStorage.removeItem('token')
+    }
+
     const {user} = useContext(Context)
     const role = 'Admin'
     return (
@@ -20,34 +26,35 @@ const NavBar = observer(() => {
                     <img src={LogoHeader} alt="logoHeader"/>
                 </Link>
                 {!user.isAuth 
-                    ?<div class="header_sign_row header_sign_row_no-authorized">
-                        <Link to={LOGIN_ROUTE}>
-                            <div class="header_buttom_sign_in">
+                    ?<div className="header_sign_row header_sign_row_no-authorized">
+                        <Link to={LOGIN_ROUTE} >
+                    
+                            <div className="header_buttom_sign_in">
                                 Sign in
                             </div>
                         </Link>
-                        <div class="header_buttom_sign_up">
+                        <div className="header_buttom_sign_up">
                             <Link to={REGISTR_ROUTE}>Sign up</Link>
                         </div>
                     </div>
-                    :<div class="header_sign_row header_sign_row-authorized">
+                    :<div className="header_sign_row header_sign_row-authorized">
                         {role === 'Admin' && 
-                            <div class="header_buttom">
+                            <div className="header_buttom">
                                 <Link to={ADMIN_ROUTE} >Admin panel</Link>
                             </div>
                         }
-                        <div class="header_buttom">
+                        <div className="header_buttom">
                             <Link to={VOCABULARY_ROUTE} >Vocabulary</Link>
                         </div>
-                        <div class="header_buttom">
+                        <div className="header_buttom">
                             <Link to={GRAMMAR_ROUTE} >Grammar</Link>
                         </div>
-                        <div class="header_buttom ">
+                        <div className="header_buttom ">
                             <Link to={EXERCISES_ROUTE} >Exercises</Link>
                         </div>
 
-                        <div  class="header_buttom">
-                            <Link to={MAIN_ROUTE} onClick={() => {user.setIsAuth(false)}} >Exit</Link>
+                        <div  className="header_buttom">
+                            <Link to={MAIN_ROUTE} onClick={() => logOut()} >Exit</Link>
                         </div>
                      </div>
                 }
