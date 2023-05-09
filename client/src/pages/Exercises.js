@@ -1,9 +1,15 @@
 import React from 'react'
+import TestSelector from '../components/TestSelector'
+import Test from '../components/Test'
+import { observer } from 'mobx-react-lite'
 
-const Exercises = () => {
+const Exercises = observer(() => {
   return (
-    <div>Exercises</div>
+    <div>
+      <TestSelector/>
+      <Test/>
+    </div>
   )
-}
+});
 
 export default Exercises

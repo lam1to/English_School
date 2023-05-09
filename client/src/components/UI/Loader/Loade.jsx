@@ -1,6 +1,7 @@
 import React from "react";
 import cl from './Loader.module.css';
-const Loader = () => {
+import { observer } from 'mobx-react-lite'
+const Loader = observer(() => {
 
     return(
         <div className= {cl.loader_block}>
@@ -8,7 +9,7 @@ const Loader = () => {
         </div>
     );
 
-}
+});
 
 
 export default Loader;

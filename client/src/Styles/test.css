@@ -1,0 +1,66 @@
+/* choice_test начало */
+.choice_test {
+    margin-bottom: 100px;
+}
+.choice_test-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.block_task-test {
+    max-width: 552px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: #E6ECFF;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 62px;
+}
+.bmargin{
+    margin-right: 24px;
+}
+
+.block_task-test_container{
+    padding: 32px 45px 0px 25px ;
+}
+.block_task-test_title {
+    display: flex;
+    margin: 0px 0px 36px 0px ;
+}
+.block_task-test_title-number {
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    margin: 0px 10px 0px 0px;
+}
+.block_task-test_title-text {
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+}
+.block_task-test_level {
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    margin: 0px 0px 123px 0px;
+}
+.block_task-test_level_b-word{
+    font-weight: 500;
+}
+.block_task-test-button {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    width: 552px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    color: #FFFFFF;
+    height: 73px;
+    background-color: #005995;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* choice_test конец  */
