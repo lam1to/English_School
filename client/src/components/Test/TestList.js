@@ -17,18 +17,15 @@ const TestList = observer(() => {
         fetchAnswer().then(data => {test.setAnswer(data)})
       },[])
     const testF = (id, test) => {
-       let mas = test.questions?.map((question) =>
-            id === question.testId && question
-       )
-       console.log("mas = " + mas)
-       return mas
+       let filterQuestion = test.questions?.filter((question) => id == question.testId)
+       return filterQuestion
     }
 
   return (
     <div>
         <div>
             {testF(params.id, test).map((question,i) => 
-                <QuestionOne key={i} question={question} i = {i} answers={test.answers}/>
+                <QuestionOne key={i} question={question} i = {i + 1} answers={test.answers}/>
             )}
         </div>
         {test.setIndexTest(0)}

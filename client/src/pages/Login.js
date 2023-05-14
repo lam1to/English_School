@@ -5,7 +5,7 @@ import '../Styles/login.css'
 import { observer } from 'mobx-react-lite'
 import { Context } from '..';
 import { login } from '../http/userAPI'
-import { EXERCISES_ROUTE } from '../utils/consts';
+import { EXERCISES_ROUTE, VOCABULARY_ROUTE } from '../utils/consts';
 
 const Login = observer(() => {
     const {user} = useContext(Context)
@@ -19,7 +19,7 @@ const Login = observer(() => {
       console.log(data)
       user.setUser(data)
       user.setIsAuth(true)
-      navigate(EXERCISES_ROUTE)
+      navigate(VOCABULARY_ROUTE)
     }
     catch(e) {
       alert(e.response.data.message)

@@ -4,7 +4,7 @@ import LoginImg from '../img/block_login_img.png'
 import { registration } from '../http/userAPI'
 import { observer } from 'mobx-react-lite'
 import { Context } from '..';
-import { MAIN_ROUTE } from '../utils/consts';
+import { MAIN_ROUTE, VOCABULARY_ROUTE } from '../utils/consts';
 
 const Registration = observer(() => {
   const {user} = useContext(Context)
@@ -20,7 +20,7 @@ const Registration = observer(() => {
       console.log(data)
       user.setUser(data)
       user.setIsAuth(true)
-      navigate(MAIN_ROUTE)
+      navigate(VOCABULARY_ROUTE)
     }
     catch(e) {
       alert(e.response.data.message)

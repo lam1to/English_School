@@ -4,7 +4,9 @@ import { Context } from '../..'
 
 
 const QuestionOne = ({question,i,answers}) => {
-    
+    const filterAnswers = () => {
+        return answers.filter(answer => answer.questionId == question.id)
+    }
   return (
     <div>
         <div className='questionOne_question'>
@@ -15,8 +17,8 @@ const QuestionOne = ({question,i,answers}) => {
         </div>
         <form >
             <div className='answer-list'>
-            {answers?.map((answer, j) => 
-                question.id === answer.questionId && <AnswerOne key={j} answer={answer} j={j} />
+            {filterAnswers().map((answer, j) => 
+                <AnswerOne key={j} answer={answer} j={j} />
             )}
             </div>
         </form>

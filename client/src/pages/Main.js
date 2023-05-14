@@ -4,6 +4,8 @@ import CirclesSvg from '../img/circles.svg'
 import WhyEnglishImg from '../img/why_english_img.svg'
 import '../Styles/main.css'
 import { observer } from 'mobx-react-lite'
+import { Link } from 'react-router-dom'
+import { REGISTR_ROUTE } from '../utils/consts'
 
 const Main = observer(() => {
   return (
@@ -20,11 +22,11 @@ const Main = observer(() => {
                 <div className="start_main_learn_text">
                     Повышайте свои навыки,<br/> обучайтесь с удовольствием
                 </div>
-                <a className="start_main_learn_buttom_link" >
+                <Link to={REGISTR_ROUTE} className="start_main_learn_buttom_link" >
                     <div className="start_main_learn_buttom_start blue_buttom">
                         Начать
                     </div>    
-                </a>
+                </Link>
             </div>
         </div>
         <div className="why_english">
@@ -104,11 +106,11 @@ const Main = observer(() => {
                     <p className="footer_titel">
                         Начинайте свое обучение <br/> вместе с нами <span className="footer_titel_bold"> прямо сейчас!</span>
                     </p>
-                    <a className="footer_buttom-link ">
+                    <Link to={REGISTR_ROUTE} className="footer_buttom-link ">
                         <div className="footer_buttom_block blue_buttom">
                             Начать
                         </div>
-                    </a>
+                    </Link>
                    
                 </div>
             </div>

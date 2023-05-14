@@ -61,6 +61,4 @@ export const publicRoutes = [
         path: MAIN_ROUTE,
         Component: Main
     }
-
-
 ]
