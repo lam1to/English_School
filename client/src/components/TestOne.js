@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
+import { EXERCISES_ROUTE } from '../utils/consts';
+import {useNavigate} from 'react-router-dom'
 
 
 const TestOne = observer(({test,i}) => {
-    useEffect(() => {
-        console.log("i =",i)
-    },[])
+    const navigate = useNavigate()
   return (
     <div>
         {(i%2 === 0) 
-            ?<div className="block_task-test bmargin">
+            ?<div onClick={() => navigate(EXERCISES_ROUTE + '/' + test.id)} className="block_task-test bmargin">
                 <div  className="block_task-test_container">
                     <div className="block_task-test_title">
                         <div className="block_task-test_title-number">{test.id + "."}</div>
@@ -26,7 +26,7 @@ const TestOne = observer(({test,i}) => {
                     </div>
                 </Link>
             </div>
-            :<div className="block_task-test">
+            :<div onClick={() => navigate(EXERCISES_ROUTE + '/' + test.id)} className="block_task-test">
                 <div  className="block_task-test_container">
                     <div className="block_task-test_title">
                         <div className="block_task-test_title-number">{test.id + "."}</div>

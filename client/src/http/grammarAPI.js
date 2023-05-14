@@ -6,6 +6,6 @@ export const createGrammar = async(grammar) => {
 }
 
 export const fetchGrammar = async() => {
-    const {data} = await $host.get('api/test')
+    const {data} = await $host.get('api/grammar')
     return data
 }

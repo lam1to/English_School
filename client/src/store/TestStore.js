@@ -19,7 +19,16 @@ export default class TestStore{
         ]
         this._question = []
         this._answer = []
+        this._indexTest = 0
+        this._levelFlag = 'A1'
+        this._topicFlag = 'Articles'
         makeAutoObservable(this)
+    }
+    setLevelFlag(levelFlags){
+        this._levelFlag = levelFlags
+    }
+    setTopicFlag(topicFlags){
+        this._topicFlag = topicFlags
     }
     setTest(tests){
         this._test = tests
@@ -27,8 +36,24 @@ export default class TestStore{
     setQuestion(questions){
         this._question = questions
     }
-    setAnswear(answers){
+    setAnswer(answers){
         this._answer = answers
+    }
+    setIndexTest(index){
+        this._indexTest = index
+    }
+
+    get levelFlags(){
+        return this._levelFlag
+    }
+
+    get topicFlags(){
+        return this._topicFlag
+    }
+
+    get indexTest(){
+        
+        return this._indexTest
     }
 
     get tests(){

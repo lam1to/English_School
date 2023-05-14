@@ -1,0 +1,17 @@
+.ruleListOne_container{
+    margin-top: 43px;
+}
+
+.ruleListOne_container:last-child{
+    margin-bottom: 43px;
+}
+.ruleListOne_link{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-decoration-line: underline;
+    color: #002EA6;
+}
+
+
+

@@ -27,7 +27,7 @@ const CreateTest = ({show, onHide}) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Add new vocabulary
+          Add new test
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

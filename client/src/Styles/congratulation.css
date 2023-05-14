@@ -1,0 +1,17 @@
+.congratulation_container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.congratulation-title{
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 37px;
+    color: #000000;
+
+}
+.congratulation-img{
+    margin: 37px 0px 0px 0px;
+}

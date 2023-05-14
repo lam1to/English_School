@@ -10,3 +10,9 @@ export const fetchTest = async() => {
     const {data} = await $host.get('api/test')
     return data
 }
+
+
+export const fetchOneTest = async(id) => {
+    const {data} = await $host.get('api/test/' +id )
+    return data
+}

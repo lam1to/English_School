@@ -3,13 +3,17 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Context } from '../..';
-import { createGrammar } from '../../http/grammarAPI';
+import { createRule } from '../../http/ruleAPI';
 
-const CreateGrammar = ({show, onHide}) => {
+const CreateRule = ({show, onHide}) => {
     const [topic, setTopic] = useState('')
-    const addGrammar = () => {
-        createGrammar({topic}).then(data => {
+    const [content, setContent] = useState('')
+    const [grammarId, setGrammarId] = useState('')
+    const addRule = () => {
+        createRule({topic,content,grammarId}).then(data => {
             setTopic('')
+            setContent('')
+            setGrammarId('')
             onHide()
         })
     }
@@ -22,7 +26,7 @@ const CreateGrammar = ({show, onHide}) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Add new grammar
+          Add new rule
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -30,16 +34,28 @@ const CreateGrammar = ({show, onHide}) => {
             <Form.Control
                 onChange = {e => setTopic(e.target.value)}
                 value={topic}  
+                className='mb-5'
                 placeholder ={"input topic"}
+            />
+             <Form.Control
+                onChange = {e => setContent(e.target.value)}
+                value={content}  
+                className='mb-5'
+                placeholder ={"input content"}
+            />
+             <Form.Control
+                onChange = {e => setGrammarId(e.target.value)}
+                value={grammarId} 
+                placeholder ={"input grammarId"}
             />
         </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button variant='outline-danger' onClick={onHide}>Close</Button>
-        <Button variant='outline-success' onClick={addGrammar}>Add</Button>
+        <Button variant='outline-success' onClick={addRule}>Add</Button>
       </Modal.Footer>
     </Modal>
   )
 }
 
-export default CreateGrammar
+export default CreateRule

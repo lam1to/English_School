@@ -1,0 +1,28 @@
+.vocabularyPage_container-block_title{
+    display: flex;
+
+}
+
+.vocabularyPage_container-img{
+    max-width: 67px;
+    width: 100%;
+}
+
+.vocabularyPage_container-title{
+    display: flex;
+    align-items: center;
+    margin-left: 29px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    color: #002EA6;
+}
+
+.vocabularyPage_container-content{
+    margin-top: 96px;
+    margin-bottom: 233px;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 174%;
+    color: #000000;
+}

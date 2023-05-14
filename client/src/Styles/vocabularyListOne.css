@@ -1,0 +1,51 @@
+.vocabularyListOne_block{
+    display: flex;
+    margin-top: 48px;
+}
+
+.vocabularyListOne-block_img{
+    max-width: 67px;
+    width: 100%;
+}
+
+.vocabularyListOne-text_container{
+    margin-left: 10px;
+    
+}
+.vocabularyListOne-text_container-li::marker{
+    color: #002EA6;
+    font-size: 20px;
+}
+.vocabularyListOne-text_container-topic{
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    /* identical to box height */
+    text-decoration-line: underline;
+    color: #002EA6;
+    position: relative;
+}
+/* .vocabularyListOne-text_container-topic::before{
+    content: '';
+    position: absolute;
+    border: 3px solid #002EA6;
+    top: 14px;
+    left: -7px;
+    border-radius: 50%;
+
+} */
+.vocabularyListOne_point{
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+    /* identical to box height */
+    color: #002EA6;
+}
+.vocabularyListOne-text_container-description{
+    margin-top: 17px;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    color: #000000;
+}

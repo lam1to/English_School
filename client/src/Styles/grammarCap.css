@@ -1,0 +1,17 @@
+.grammarCap_container {
+    margin-bottom: 76px;
+}
+.grammarCap-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    /* identical to box height */
+    color: #002EA6;
+}
+.grammarCap-description {
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 38px;
+    color: #000000;
+    margin-top: 43px;
+}

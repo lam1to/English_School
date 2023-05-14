@@ -1,0 +1,68 @@
+.questionOne_question{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;
+    margin: 65px 0px 0px 0px;
+}
+.custom-radio{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-radio+label{
+    display: inline-block;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;
+    position: relative;
+    user-select: none;
+}
+.custom-radio+label::before{
+    content: '';
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 4px solid black;
+    border-radius: 50%;
+    margin-right: 13px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #002EA6;
+  }
+  /* стили для активной радиокнопки (при нажатии на неё) */
+  .custom-radio:not(:disabled):active+label::before {
+    background-color: black;
+    border-color: #b3d7ff;
+  }
+
+  /* стили для радиокнопки, находящейся в состоянии checked */
+  .custom-radio:checked+label::before {
+    border-color: #002EA6;
+    background-color: #002EA6;
+  }
+  /* стили для радиокнопки, находящейся в состоянии disabled */
+  .custom-radio:disabled+label::before {
+    background-color: #e9ecef;
+  }
+.block_button-test_list{
+    margin-bottom: 50px;
+}
+.block_button-test_list:hover{
+    margin-bottom: 53px;
+    transition: 1s;
+}
+
+.questionOne-title-answer{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    color: #000000;
+    margin: 65px 0px 27px 0px;
+}

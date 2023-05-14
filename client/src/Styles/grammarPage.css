@@ -1,0 +1,16 @@
+.grammarPage-title{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;   
+    color: #002EA6;
+
+}
+
+.grammarPage-content{
+    margin-top: 43px;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 35px;
+    color: #000000;
+    margin-bottom: 43px;
+}
