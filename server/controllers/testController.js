@@ -2,8 +2,8 @@ const {Test} = require('../models/models')
 const ApiError = require('../error/ApiError')
 class TestController{
     async create(req,res){
-        const {topic,difficulte,level} = req.body
-        const test = await Test.create({topic,difficulte,level})
+        const {topic,difficulte,level,sTopic} = req.body
+        const test = await Test.create({topic,difficulte,level,sTopic})
         return res.json({test})
     }
     async getAll(req,res){
@@ -15,7 +15,8 @@ class TestController{
         return res.json(tests)
     }
     async getOne(req,res){
-        const testOne =await Test.findOne()
+        const {id} = req.params 
+        const testOne = await Test.findOne({where: {id}})
         return res.json(testOne)
     }
 }

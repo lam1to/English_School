@@ -11,7 +11,7 @@ class VocabularyController{
             let fileName = uuid.v4() + ".jpg"
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
             const vocabulary = await Vocabulary.create({topic,description,content,img:fileName})
-            return res.json({vocabulary})
+            return res.json(vocabulary)
         }
         catch(e){
             next(ApiError.badRequest('произошла ошибка'))
@@ -23,7 +23,8 @@ class VocabularyController{
         return res.json(vocabularyAll)
     }
     async getOne(req,res){
-        const vocabularyOne = await Vocabulary.findOne()
+        const {id} = req.params 
+        const vocabularyOne = await Vocabulary.findOne({where: {id}})
         return res.json(vocabularyOne)
     }
 }

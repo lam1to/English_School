@@ -16,11 +16,11 @@ const TestList = observer(() => {
         fetchQuestion().then(data => {test.setQuestion(data)})
         fetchAnswer().then(data => {test.setAnswer(data)})
       },[])
-    console.log(test.questions)
     const testF = (id, test) => {
-       let mas  = test.questions?.map((question) =>
+       let mas = test.questions?.map((question) =>
             id === question.testId && question
        )
+       console.log("mas = " + mas)
        return mas
     }
 
