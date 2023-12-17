@@ -7,8 +7,8 @@
     flex-wrap: wrap;
 }
 .block_task-test {
-    max-width: 552px;
     width: 100%;
+    width: 552px;
     border: 1px solid black;
     background-color: #E6ECFF;
     border-radius: 15px;

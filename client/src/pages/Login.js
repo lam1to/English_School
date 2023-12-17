@@ -8,7 +8,7 @@ import { login } from '../http/userAPI'
 import { EXERCISES_ROUTE, VOCABULARY_ROUTE } from '../utils/consts';
 
 const Login = observer(() => {
-    const {user} = useContext(Context)
+  const {user} = useContext(Context)
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -19,6 +19,8 @@ const Login = observer(() => {
       console.log(data)
       user.setUser(data)
       user.setIsAuth(true)
+      console.log("user. role = ", user.user.role)
+      user.setRole(user.user.role)
       navigate(VOCABULARY_ROUTE)
     }
     catch(e) {

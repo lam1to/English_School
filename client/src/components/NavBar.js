@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '..' 
 import LogoHeader from '../img/logoHeader.svg'
 
@@ -16,7 +16,6 @@ const NavBar = observer(() => {
         user.setIsAuth(false)
         localStorage.removeItem('token')
     }
-
     const {user} = useContext(Context)
     return (
         <header className="header_main">
@@ -42,7 +41,7 @@ const NavBar = observer(() => {
                             <img src={LogoHeader} alt="logoHeader"/>
                         </Link>
                         <div className="header_sign_row header_sign_row-authorized">
-                            {user.user.role == 'ADMIN' && 
+                            {user.user.role == "ADMIN" && 
                                 <div className="header_buttom">
                                     <Link to={ADMIN_ROUTE} >Admin panel</Link>
                                 </div>
