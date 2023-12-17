@@ -1,0 +1,43 @@
+.contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+}
+.contacts h5 {
+  font-weight: 700;
+  font-size: 28px;
+  text-align: center;
+}
+.contacts-row {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 65px 150px;
+}
+
+@media (max-width: 992px) {
+  .contacts-row {
+    padding: 55px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-row {
+    padding: 45px 30px;
+  }
+}
+@media (max-width: 540px) {
+  .contacts-row {
+    flex-wrap: wrap;
+    padding: 25px 15px;
+  }
+  .contact {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    align-items: center;
+  }
+}

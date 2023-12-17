@@ -9,6 +9,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import '../Styles/auth.css';
 import TextInput from '../components/Form/TextInput';
 import regexConfig from '../Config/RegexConfig';
+import CustomButton from '../components/Form/CustomButton';
 
 const Registration = () => {
   const { user } = useContext(Context);
@@ -104,23 +105,10 @@ const Registration = () => {
                 }}
                 isPassword={true}
               />
-              <Button
+              <CustomButton
                 onClick={form.handleSubmit(onSubmit)}
-                sx={{
-                  backgroundColor: '#005995',
-                  color: 'white',
-                  marginTop: '20px',
-                  borderRadius: '15px',
-                  width: '220px',
-                  height: '60px',
-                  fontSize: '24px',
-                  fontWeight: '600',
-                  fontFamily: 'Montserrat',
-                }}
-                variant="contained"
-              >
-                Sing up
-              </Button>
+                title="Sing up"
+              ></CustomButton>
             </form>
           </div>
           <div className="auth_img">

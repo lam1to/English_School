@@ -10,6 +10,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import '../Styles/auth.css';
 import TextInput from '../components/Form/TextInput';
 import regexConfig from '../Config/RegexConfig';
+import CustomButton from '../components/Form/CustomButton';
 
 const Login = () => {
   const { user } = useContext(Context);
@@ -76,10 +77,10 @@ const Login = () => {
                   },
                   validate: {
                     valid: (value) => {
-                      if (!regexConfig.minOneLowerCase.test(value))
-                        return 'Must contain at least one lowercase character';
-                      if (!regexConfig.minOneUpperCase.test(value))
-                        return 'Must contain at least one uppercase character';
+                      // if (!regexConfig.minOneLowerCase.test(value))
+                      //   return 'Must contain at least one lowercase character';
+                      // if (!regexConfig.minOneUpperCase.test(value))
+                      //   return 'Must contain at least one uppercase character';
                       if (!regexConfig.minOneSpecSymbol.test(value))
                         return 'Must contain at least one special character';
                     },
@@ -87,23 +88,10 @@ const Login = () => {
                 }}
                 isPassword={true}
               />
-              <Button
+              <CustomButton
                 onClick={form.handleSubmit(onSubmit)}
-                sx={{
-                  backgroundColor: '#005995',
-                  color: 'white',
-                  marginTop: '20px',
-                  borderRadius: '15px',
-                  width: '220px',
-                  height: '60px',
-                  fontSize: '24px',
-                  fontWeight: '600',
-                  fontFamily: 'Montserrat',
-                }}
-                variant="contained"
-              >
-                Sing in
-              </Button>
+                title="Sign in"
+              ></CustomButton>
             </form>
           </div>
           <div className="auth_img">

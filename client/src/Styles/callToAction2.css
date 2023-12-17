@@ -1,0 +1,35 @@
+.call-to-action2 {
+  margin: 300px 0px;
+}
+
+.call-to-action2-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.call-to-action2-container img {
+  margin-right: 20px;
+}
+.call-to-action2-container div {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.call-to-action2-container h5 {
+  max-width: 420px;
+  font-weight: 700;
+  font-size: 25px;
+}
+.call-to-action2-container h5 span {
+  font-weight: 900;
+}
+.call-to-action2-container button {
+  margin: 0;
+}
+
+.call-to-action2-container div img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}

@@ -1,0 +1,25 @@
+.call-to-action {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.picture {
+  margin-right: 80px;
+}
+.call-action-content {
+  max-width: 370px;
+}
+
+.call-action-content h5 {
+  font-weight: 800;
+  font-size: 28px;
+}
+.call-action-content p {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 22px;
+}
+.call-action-content button {
+  margin-top: 55px;
+}
