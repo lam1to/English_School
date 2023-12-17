@@ -2,11 +2,10 @@
 *,
 *::before,
 *::after {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Убираем внутренние отступы */
-
 
 /* Убираем внешние отступы */
 body,
@@ -23,62 +22,124 @@ figcaption,
 blockquote,
 dl,
 dd {
-margin: 0;
+  margin: 0;
 }
-
+html {
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+}
 /* Выставляем основные настройки по-умолчанию для body */
 body {
-min-height: 100vh;
-scroll-behavior: smooth;
-text-rendering: optimizeSpeed;
-line-height: 1.5;
-/* overflow: hidden; */
+  /* min-height: 100vh; */
+  height: 100%;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  /* overflow: hidden; */
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
 ol[class] {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 /* a:not([class]) {
 text-decoration-skip-ink: auto;
 } */
-a{
-    text-decoration:none;
+a {
+  text-decoration: none;
 }
 
 /* Упрощаем работу с изображениями */
 img {
-max-width: 100%;
-display: block;
+  max-width: 100%;
+  display: block;
 }
-
 
 /* Наследуем шрифты для инпутов и кнопок */
 input,
 button,
 textarea,
 select {
-font: inherit;
+  font: inherit;
 }
-
 
 /* Начало всего */
 /* Служебные классы начало */
-body{
-    background-color: #ffff;
-    font-family: 'Montserrat';
+body {
+  background-color: #ffff;
+  font-family: 'Montserrat';
+  scroll-behavior: smooth !important;
 }
 .wrapper {
 }
-._container{
+/* ._container{
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 25px;
+} */
+._container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
 }
-.margin-safety{
-    margin: 0px 15px 0px 0px ;
+@media (min-width: 576px) {
+  ._container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  ._container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  ._container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1250px) {
+  ._container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  ._container {
+    max-width: 1320px;
+  }
+}
+@media (min-width: 1800px) {
+  ._container {
+    max-width: 1555px;
+  }
+}
+@media (min-width: 2200px) {
+  ._container {
+    max-width: 1850px;
+  }
+}
+
+.margin-safety {
+  margin: 0px 15px 0px 0px;
+}
+.apps {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  flex: 1 0 auto;
+}
+
+.error-field {
+  color: red;
+  font-size: 14px;
 }

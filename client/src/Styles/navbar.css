@@ -1,129 +1,37 @@
 .header_main {
-    background-color: #95ECB3;
-    height: 137px;
-    margin-bottom: 164px;
+  background-color: white;
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .header_container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .header_logo {
-    margin: 0px 15px 0px 0px;
+  margin: 0px 15px 0px 0px;
 }
-.header_sign_row {
-    display: flex;
-    font-weight: 600;
-    line-height: 30px;
-    align-items: center;
-}
-.header_sign_row a{
-    color: black;
-    text-decoration: none;
+.header_row {
+  display: flex;
+  font-weight: 600;
+  line-height: 30px;
+  align-items: center;
 }
 
-.navbar_block_main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.navbar_block_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
-.header_sign_row_no-authorized :not(:last-child){
-    margin: 0px 27px 0px 0px;
-
-}
-.header_buttom_sign_in{
-    border: 2px solid black;
-    padding: 12px 20px;
-    font-size: 25px;
-}
-.header_buttom_sign_in:hover{
-    color: #005995;
-    transition: 1s;
-    border-radius: 25%;
-}
-.header_buttom_sign_in:not(:hover){
-    transition: 1s;
+.header_buttom {
+  padding: 30px 10px;
 }
 
-.header_buttom_sign_up{
-    font-size: 25px;
+.header_buttom a {
+  color: black;
+  text-decoration: none;
 }
-.header_buttom_sign_up a:hover{
-    color: #005995;
-    margin-left: 15px;
-    font-size: 23px;
-    transition: 1s;
-}
-.header_buttom_sign_up a:not(:hover){
-    transition: 1s;
-}
-
-
-@media (max-width:990px){
-    .header_buttom_sign_in{
-        padding: 10px 18px;
-        font-size: 22px;
-    }
-    .header_buttom_sign_in:hover{
-        font-size: 20px;
-    }
-    .header_buttom_sign_up{
-        font-size: 22px;
-    }
-    .header_buttom_sign_up a:hover{
-        font-size: 20px;
-    }
-}
-@media (max-width:600px){
-    .header_buttom_sign_in{
-        padding: 6px 14px;
-        font-size: 18px;
-    }
-    .header_buttom_sign_in:hover{
-        font-size: 16px;
-    }
-    .header_buttom_sign_up{
-        font-size: 18px;
-    }
-    .header_buttom_sign_up a:hover{
-        font-size: 16px;
-    }
-}
-@media (max-width:450px){
-    .header_buttom_sign_in{
-        padding: 4px 12px;
-        font-size: 12px;
-    }
-    .header_buttom_sign_up{
-        font-size: 12px;
-    }
-    .header_logo img{
-        width: 70px;
-    }
-}
-
-/* зарегистр */
-
-
-.header_buttom{
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 30px;
-}
-.header_buttom a:hover{
-    color: #005995;
-    transition: 1s;
-}
-.header_buttom a:not(:hover){
-    transition: 1s;
-}
-
-.header_buttom-activ{
-    font-weight: 800;
-}
-
-.header_buttom:not(:last-child){
-    margin: 0px 36px 0px 0px;
+.header_buttom:hover a {
+  color: #005995;
 }

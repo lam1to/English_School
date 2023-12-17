@@ -1,17 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '..';
-import { login } from '../http/userAPI';
+import { registration } from '../http/userAPI';
 import { VOCABULARY_ROUTE } from '../utils/consts';
 import { Box, Button, Card, Stack, TextField } from '@mui/material';
 import auth_img from '../img/auth_img.png';
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import { TextFieldElement, FormProvider, useForm } from 'react-hook-form-mui';
 import '../Styles/auth.css';
 import TextInput from '../components/Form/TextInput';
 import regexConfig from '../Config/RegexConfig';
 
-const Login = () => {
+const Registration = () => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
   const form = useForm({
@@ -25,12 +24,15 @@ const Login = () => {
     console.log('data', mainData);
     try {
       let data;
-      data = await login(mainData.name, mainData.password);
+      data = await registration(
+        mainData.firstName,
+        mainData.lastName,
+        mainData.email,
+        mainData.password
+      );
       console.log(data);
       user.setUser(data);
       user.setIsAuth(true);
-      console.log('user. role = ', user.user.role);
-      user.setRole(user.user.role);
       navigate(VOCABULARY_ROUTE);
     } catch (e) {
       alert(e.response.data.message);
@@ -53,13 +55,29 @@ const Login = () => {
         >
           <div className="form">
             <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="auth-title">SIGN IN</div>
+              <div className="auth-title">SIGN UP</div>
               <TextInput
                 form={form}
-                name="name"
-                nameField="Name"
+                name="firstName"
+                nameField="First name"
                 rules={{
-                  required: { value: true, message: 'Name is required' },
+                  required: { value: true, message: 'First name is required' },
+                }}
+              />
+              <TextInput
+                form={form}
+                name="lastName"
+                nameField="Last name"
+                rules={{
+                  required: { value: true, message: 'Last name is required' },
+                }}
+              />
+              <TextInput
+                form={form}
+                name="email"
+                nameField="Email"
+                rules={{
+                  required: { value: true, message: 'Email is required' },
                 }}
               />
               <TextInput
@@ -68,7 +86,6 @@ const Login = () => {
                 nameField="Password"
                 rules={{
                   required: { value: true, message: 'Password is required' },
-
                   minLength: {
                     value: 8,
                     message:
@@ -102,7 +119,7 @@ const Login = () => {
                 }}
                 variant="contained"
               >
-                Sing in
+                Sing up
               </Button>
             </form>
           </div>
@@ -115,4 +132,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Registration;

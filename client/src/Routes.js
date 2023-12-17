@@ -4,7 +4,7 @@ import Grammar from './pages/Grammar';
 import GrammarPage from './pages/GrammarPage';
 import Login from './pages/Login';
 import Main from './pages/Main';
-import Registration from './pages/RegistrationOld';
+import Registration from './pages/Registration';
 import Vocabulary from './pages/Vocabulary';
 import VocabularyPage from './pages/VocabularyPage';
 import {
@@ -17,9 +17,11 @@ import {
   LOGIN_ROUTE,
   GRAMMAR_PAGE_ROUTE,
   CONGRATULATION_ROUTE,
+  MAIN_ROUTE_OLD,
 } from './utils/consts';
 import TestPage from './pages/TestPage';
 import Congratulation from './pages/Congratulation';
+import MainOld from './pages/MainOld';
 
 export const authRoutes = [
   {
@@ -64,6 +66,10 @@ export const publicRoutes = [
   {
     path: REGISTR_ROUTE,
     Component: Registration,
+  },
+  {
+    path: MAIN_ROUTE_OLD,
+    Component: MainOld,
   },
   {
     path: MAIN_ROUTE,

@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '.';
 import { check } from './http/userAPI';
 import Spinner from 'react-bootstrap/Spinner';
+import Footer from './components/Footer';
 
 const App = observer(() => {
   const { user } = useContext(Context);
@@ -22,19 +23,24 @@ const App = observer(() => {
       })
       .finally(() => setLoading(false));
 
-    WebFont.load({
-      google: {
-        families: ['Montserrat', 'Montserrat bold'],
-      },
-    });
+    // WebFont.load({
+    //   google: {
+    //     families: ['Montserrat', 'Montserrat bold', 'Montserrat medium'],
+    //   },
+    // });
   }, []);
   if (loading) {
     return <Loader />;
   }
   return (
     <BrowserRouter>
-      <NavBar />
-      <AppRouter />
+      <div className="apps">
+        <NavBar />
+        <div className="content">
+          <AppRouter />
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 });

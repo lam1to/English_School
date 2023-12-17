@@ -1,0 +1,43 @@
+.main_auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+  height: 100%;
+}
+
+.main_auth_container {
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 100px; */
+  margin: 100px 0px;
+}
+
+.form {
+  flex: 1 0 auto;
+  padding: 50px;
+}
+
+.auth-title {
+  font-weight: 700;
+  font-size: 28px;
+  color: #005995;
+  margin-bottom: 40px;
+}
+.auth_img {
+  height: 100%;
+  max-width: 50%;
+}
+.auth_img img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.label_input {
+  font-weight: 500;
+  font-size: 18px;
+}
+.input_block {
+  padding-bottom: 20px;
+  min-height: 125px;
+}
