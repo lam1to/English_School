@@ -17,6 +17,7 @@ import {
   ToggleButtonGroup,
   ToggleButton,
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const SliderMenu = ({ anchorEl, handleClose }) => {
   const logOut = () => {
@@ -27,10 +28,11 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
   const { user } = useContext(Context);
-  const [selectLanguage, setSelectLanguage] = useState('en');
+  const { t, i18n } = useTranslation();
 
   const handleChange = (event, selectsLanguage) => {
-    setSelectLanguage(selectsLanguage);
+    i18n.changeLanguage(selectsLanguage);
+    console.log('selectLa = ', selectsLanguage);
   };
   return (
     <Popover
@@ -67,23 +69,23 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
             {/* </div> */}
             <div onClick={handleClose} className="link">
               <Link to={MAIN_ROUTE} onClick={() => logOut()}>
-                Log out
+                {t('slider.logout')}
               </Link>
             </div>
           </div>
           {user.user.role == 'ADMIN' && (
             <div onClick={handleClose} className="slider-item">
-              <Link to={ADMIN_ROUTE}>Admin panel</Link>
+              <Link to={ADMIN_ROUTE}> {t('slider.admin')}</Link>
             </div>
           )}
           <div onClick={handleClose} className="slider-item">
-            <Link to={VOCABULARY_ROUTE}>Vocabulary</Link>
+            <Link to={VOCABULARY_ROUTE}> {t('slider.vocabulary')}</Link>
           </div>
           <div onClick={handleClose} className="slider-item">
-            <Link to={GRAMMAR_ROUTE}>Grammar</Link>
+            <Link to={GRAMMAR_ROUTE}> {t('slider.grammar')}</Link>
           </div>
           <div onClick={handleClose} className="slider-item ">
-            <Link to={EXERCISES_ROUTE}>Exercises</Link>
+            <Link to={EXERCISES_ROUTE}> {t('slider.exercises')}</Link>
           </div>
           <ToggleButtonGroup
             sx={{
@@ -97,7 +99,7 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
               },
             }}
             color="primary"
-            value={selectLanguage}
+            value={i18n.language}
             exclusive
             onChange={handleChange}
             aria-label="Platform"
@@ -119,7 +121,6 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
             <ToggleButton
               sx={{
                 border: 'none',
-
                 // color: 'white',
                 backgroundColor: 'inherit',
                 fontWeight: '600',

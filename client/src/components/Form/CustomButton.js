@@ -25,6 +25,7 @@ const CustomButton = ({ onClick, title, isSmall, isOutline, className }) => {
       className={className ? className : ''}
       onClick={onClick}
       sx={{
+        textTransform: 'none',
         marginTop: '20px',
         borderRadius: '15px',
         width: `${isSmall && isSmall ? '150px' : '220px'}`,

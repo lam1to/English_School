@@ -1,0 +1,76 @@
+{
+  "button": {
+    "start": "Start",
+    "signin": "Sing in",
+    "signup": "Sing up"
+  },
+  "header.account": "My account",
+  "header.sign-in": "Sign in",
+  "header.sign-up": "Sing up",
+  "home": {
+    "call": {
+      "title": "Learn English in \"Easy&nbsp;English\"",
+      "text": "Improve your skills, learn with pleasure"
+    },
+    "advantages": {
+      "title": " Why you will definitely like the <span>Easy English?</span>",
+      "card0": {
+        "title": "Separation by levels of knowledge",
+        "content": "A balance between comfortable learning and the complexity of tasks"
+      },
+      "card1": {
+        "title": "The ability to select a language section",
+        "content": "The ability to select a language section"
+      },
+      "card2": {
+        "title": "Passing tests on selected topics",
+        "content": "Get tested and learn with even more progress"
+      },
+      "card3": {
+        "title": "System customization",
+        "content": "Change the color theme of the website and learn the language comfortably"
+      }
+    },
+    "contacts": {
+      "title": "Our contacts"
+    },
+    "call2": {
+      "title": "Start your training with <span>us right now!</span>"
+    }
+  },
+  "slider": {
+    "logout": "Log out",
+    "admin": "Admin panel",
+    "vocabulary": "Vocabulary",
+    "grammar": "Grammar",
+    "exercises": "Exercises"
+  },
+  "auth": {
+    "name": {
+      "label": "Name",
+      "error_req": "Name is required"
+    },
+    "first_name": {
+      "label": "First name",
+      "error_req": "First name is required"
+    },
+    "last_name": {
+      "label": "Last name",
+      "error_req": "Last name is required"
+    },
+    "email": {
+      "label": "Email",
+      "error_req": "Email name is required"
+    },
+    "password": {
+      "label": "Password",
+      "error_req": "Password is required",
+      "error_min": "Password is too short - should be 8 chars minimum.",
+      "error_spec": "Must contain at least one special character",
+      "error_upper": "Must contain at least one uppercase character",
+      "error_lower": "Must contain at least one lowercase character"
+    },
+    "singin": "SIGN IN",
+    "singup": "SIGN UP"
+  }
+}

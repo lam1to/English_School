@@ -11,6 +11,7 @@ import '../Styles/auth.css';
 import TextInput from '../components/Form/TextInput';
 import regexConfig from '../Config/RegexConfig';
 import CustomButton from '../components/Form/CustomButton';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
   const { user } = useContext(Context);
@@ -37,7 +38,7 @@ const Login = () => {
       alert(e.response.data.message);
     }
   };
-
+  const [t] = useTranslation();
   return (
     <div className="main_auth">
       <div className="_container main_auth_container">
@@ -54,35 +55,40 @@ const Login = () => {
         >
           <div className="form">
             <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="auth-title">SIGN IN</div>
+              <div className="auth-title">{t('auth.signin')}</div>
               <TextInput
                 form={form}
                 name="name"
-                nameField="Name"
+                nameField={t('auth.name.label')}
                 rules={{
-                  required: { value: true, message: 'Name is required' },
+                  required: {
+                    value: true,
+                    message: `${t('auth.name.error_req')}`,
+                  },
                 }}
               />
               <TextInput
                 form={form}
                 name="password"
-                nameField="Password"
+                nameField={t('auth.password.label')}
                 rules={{
-                  required: { value: true, message: 'Password is required' },
+                  required: {
+                    value: true,
+                    message: `${t('auth.password.error_req')}`,
+                  },
 
                   minLength: {
                     value: 8,
-                    message:
-                      'Password is too short - should be 8 chars minimum.',
+                    message: `${t('auth.password.error_min')}`,
                   },
                   validate: {
                     valid: (value) => {
                       // if (!regexConfig.minOneLowerCase.test(value))
-                      //   return 'Must contain at least one lowercase character';
+                      //   return  'Must contain at least one lowercase character';
                       // if (!regexConfig.minOneUpperCase.test(value))
                       //   return 'Must contain at least one uppercase character';
                       if (!regexConfig.minOneSpecSymbol.test(value))
-                        return 'Must contain at least one special character';
+                        return t('auth.password.error_spec');
                     },
                   },
                 }}
@@ -92,7 +98,7 @@ const Login = () => {
                 isOutline={false}
                 isSmall={false}
                 onClick={form.handleSubmit(onSubmit)}
-                title="Sign in"
+                title={t('button.signin')}
               ></CustomButton>
             </form>
           </div>

@@ -25,6 +25,7 @@
   width: 100%;
 }
 .header_buttom {
+  cursor: pointer;
   padding: 30px 10px;
 }
 

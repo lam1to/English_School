@@ -10,6 +10,7 @@ import '../Styles/auth.css';
 import TextInput from '../components/Form/TextInput';
 import regexConfig from '../Config/RegexConfig';
 import CustomButton from '../components/Form/CustomButton';
+import { useTranslation } from 'react-i18next';
 
 const Registration = () => {
   const { user } = useContext(Context);
@@ -39,7 +40,7 @@ const Registration = () => {
       alert(e.response.data.message);
     }
   };
-
+  const [t] = useTranslation();
   return (
     <div className="main_auth">
       <div className="_container main_auth_container">
@@ -56,50 +57,62 @@ const Registration = () => {
         >
           <div className="form">
             <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="auth-title">SIGN UP</div>
+              <div className="auth-title">{t('auth.signup')}</div>
               <TextInput
                 form={form}
                 name="firstName"
-                nameField="First name"
+                nameField={t('auth.first_name.label')}
                 rules={{
-                  required: { value: true, message: 'First name is required' },
+                  required: {
+                    value: true,
+                    message: `${t('auth.first_name.label')}`,
+                  },
                 }}
               />
               <TextInput
                 form={form}
                 name="lastName"
-                nameField="Last name"
+                nameField={t('auth.last_name.label')}
                 rules={{
-                  required: { value: true, message: 'Last name is required' },
+                  required: {
+                    value: true,
+                    message: `${t('auth.last_name.label')}`,
+                  },
                 }}
               />
               <TextInput
                 form={form}
                 name="email"
-                nameField="Email"
+                nameField={t('auth.email.label')}
                 rules={{
-                  required: { value: true, message: 'Email is required' },
+                  required: {
+                    value: true,
+                    message: `${t('auth.email.label')}`,
+                  },
                 }}
               />
               <TextInput
                 form={form}
                 name="password"
-                nameField="Password"
+                nameField={t('auth.password.label')}
                 rules={{
-                  required: { value: true, message: 'Password is required' },
+                  required: {
+                    value: true,
+                    message: `${t('auth.password.label')}`,
+                  },
                   minLength: {
                     value: 8,
-                    message:
-                      'Password is too short - should be 8 chars minimum.',
+                    message: `${t('auth.password.error_min')}`,
                   },
                   validate: {
                     valid: (value) => {
                       if (!regexConfig.minOneLowerCase.test(value))
-                        return 'Must contain at least one lowercase character';
+                        return t('auth.password.error_lower');
                       if (!regexConfig.minOneUpperCase.test(value))
-                        return 'Must contain at least one uppercase character';
+                        return t('auth.password.error_upper');
+
                       if (!regexConfig.minOneSpecSymbol.test(value))
-                        return 'Must contain at least one special character';
+                        return t('auth.password.error_spec');
                     },
                   },
                 }}
@@ -109,7 +122,7 @@ const Registration = () => {
                 isOutline={false}
                 isSmall={false}
                 onClick={form.handleSubmit(onSubmit)}
-                title="Sing up"
+                title={t('button.signup')}
               ></CustomButton>
             </form>
           </div>

@@ -1,11 +1,16 @@
 import ContactsRow from './ContactsRow';
 import '../../../Styles/contacts.css';
 
-const Contacts = () => {
+const Contacts = ({ t }) => {
   return (
     <section className="contacts">
       <div className="_container">
-        <h5>Наши контакты</h5>
+        <h5
+          dangerouslySetInnerHTML={{
+            __html: t('home.contacts.title'),
+          }}
+        />
+
         <ContactsRow />
       </div>
     </section>

@@ -15,6 +15,7 @@ import {
 } from '../../utils/consts';
 import { Link } from 'react-router-dom';
 import SliderMenu from './SliderMenu';
+import { useTranslation } from 'react-i18next';
 
 const NavBar = observer(() => {
   const logOut = () => {
@@ -31,6 +32,7 @@ const NavBar = observer(() => {
     setAnchorEl(null);
   };
   const { user } = useContext(Context);
+  const [t, i18n] = useTranslation();
   return (
     <header className="header_main">
       <div className="header_container _container">
@@ -41,17 +43,17 @@ const NavBar = observer(() => {
           {!user.isAuth ? (
             <div className="header_row">
               <div className="header_buttom">
-                <Link to={LOGIN_ROUTE}>Sign in</Link>
+                <Link to={LOGIN_ROUTE}>{t('header.sign-in')}</Link>
               </div>
               <div className="header_buttom">
-                <Link to={REGISTR_ROUTE}>Sign up</Link>
+                <Link to={REGISTR_ROUTE}>{t('header.sign-up')}</Link>
               </div>
             </div>
           ) : (
             <>
               <div className="header_row">
                 <div className="header_buttom" onClick={handleClick}>
-                  My account
+                  {t('header.account')}
                 </div>
                 <div className="header_buttom">{user.user.email}</div>
               </div>

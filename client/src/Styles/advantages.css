@@ -31,8 +31,8 @@
   padding: 40px 25px;
   background-color: #cae7f4 !important;
   position: relative;
-
   overflow: visible !important;
+  width: 24%;
 }
 .advantages-card .number {
   position: absolute;
