@@ -8,3 +8,4 @@ export const TEST_ROUTE = '/test';
 export const VOCABULARY_ROUTE = '/vocabulary';
 export const GRAMMAR_ROUTE = '/grammar';
 export const CONGRATULATION_ROUTE = '/congratulation';
+export const PROFILE_ROUTE = '/profile';

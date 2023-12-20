@@ -1,18 +1,29 @@
 import '../../Styles/auth.css';
 import { TextField } from '@mui/material';
 import { ErrorMessage } from '@hookform/error-message';
-const TextInput = ({ form, name, rules, nameField, isPassword }) => {
+const TextInput = ({
+  form,
+  name,
+  rules,
+  nameField,
+  isPassword,
+  rows,
+  placeholder,
+}) => {
   return (
-    <div className="input_block">
+    <div className="input-area">
       <div className="label_input">{nameField}</div>
       <TextField
+        multiline={rows ? true : false}
+        rows={rows && rows}
         {...form.register(name, rules)}
         type={isPassword ? 'password' : 'text'}
+        placeholder={placeholder && placeholder}
         sx={{
           backgroundColor: '#F6F7FF',
           borderRadius: '10px',
-          width: '300px',
-          height: '54px',
+          width: { xs: '100%', lg: `${rows ? '426px' : '300px'}` },
+          height: `${rows ? 'none' : '54px'}`,
           '.MuiOutlinedInput-input': {
             cursor: 'pointer',
           },

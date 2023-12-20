@@ -89,6 +89,8 @@ const Login = () => {
                 isPassword={true}
               />
               <CustomButton
+                isOutline={false}
+                isSmall={false}
                 onClick={form.handleSubmit(onSubmit)}
                 title="Sign in"
               ></CustomButton>

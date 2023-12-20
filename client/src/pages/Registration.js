@@ -106,6 +106,8 @@ const Registration = () => {
                 isPassword={true}
               />
               <CustomButton
+                isOutline={false}
+                isSmall={false}
                 onClick={form.handleSubmit(onSubmit)}
                 title="Sing up"
               ></CustomButton>

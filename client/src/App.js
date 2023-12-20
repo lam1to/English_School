@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Loader from './components/UI/Loader/Loade';
 import './Styles/app.css';
 import WebFont from 'webfontloader';

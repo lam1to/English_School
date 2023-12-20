@@ -1,0 +1,30 @@
+.slider-menu {
+  width: 420px;
+  padding: 30px;
+  font-size: 20px;
+}
+.slider-menu-cap {
+  display: flex;
+  justify-content: space-between;
+}
+.slider-menu-user {
+  display: flex;
+  width: 30%;
+  cursor: pointer;
+}
+
+.slider-menu-user p {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  color: black;
+}
+
+.slider-item a {
+  font-weight: 400;
+  color: black;
+}
+.slider-item {
+  margin-top: 20px;
+}

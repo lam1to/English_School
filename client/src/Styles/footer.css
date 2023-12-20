@@ -40,3 +40,41 @@
   width: 50%;
   padding-right: 10px;
 }
+
+@media (max-width: 1250px) {
+  .footer-row-block {
+    width: 25%;
+  }
+}
+@media (max-width: 992px) {
+  .footer-row-block {
+    width: 30%;
+  }
+}
+@media (max-width: 768px) {
+  .footer-row-block {
+    width: 40%;
+  }
+}
+@media (max-width: 576px) {
+  .footer-row-block {
+    width: 50%;
+  }
+}
+
+@media (max-width: 379px) {
+  .footer-row-block {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .footer-row-block ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

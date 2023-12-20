@@ -13,6 +13,8 @@ const CallToAction2 = () => {
             Начинайте свое обучение вместе с <span>нами прямо сейчас!</span>
           </h5>
           <CustomButton
+            isOutline={false}
+            isSmall={false}
             onClick={() => {
               console.log('callToActiion2');
             }}

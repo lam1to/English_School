@@ -18,10 +18,12 @@ import {
   GRAMMAR_PAGE_ROUTE,
   CONGRATULATION_ROUTE,
   MAIN_ROUTE_OLD,
+  PROFILE_ROUTE,
 } from './utils/consts';
 import TestPage from './pages/TestPage';
 import Congratulation from './pages/Congratulation';
 import MainOld from './pages/MainOld';
+import Profile from './pages/Profile';
 
 export const authRoutes = [
   {
@@ -55,6 +57,10 @@ export const authRoutes = [
   {
     path: CONGRATULATION_ROUTE,
     Component: Congratulation,
+  },
+  {
+    path: PROFILE_ROUTE,
+    Component: Profile,
   },
 ];
 

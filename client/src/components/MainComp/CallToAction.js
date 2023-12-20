@@ -12,6 +12,8 @@ const CallToAction = () => {
         <h5> Учите английский язык в “Easy English”</h5>
         <p>Повышайте свои навыки, обучайтесь с удовольствием</p>
         <CustomButton
+          isOutline={false}
+          isSmall={false}
           onClick={() => {
             console.log('xui');
           }}
