@@ -3,7 +3,8 @@ import About from '../components/Profile/About/About';
 import Bio from '../components/Profile/Bio';
 import HeaderProfile from '../components/Profile/HeaderProfile';
 import '../Styles/profile.css';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -13,18 +14,23 @@ const Profile = () => {
       languages: [],
       funcFacts: '',
       aboutMe: '',
+      phone: '',
+      location: new Date(),
     },
     mode: 'onChange',
   });
+  const [t] = useTranslation();
   return (
     <div className="profile">
-      <div className="_container">
-        <HeaderProfile isEdit={isEdit} setIsEdit={setIsEdit} form={form} />
-        <div className="profile-information">
-          <Bio></Bio>
-          <About form={form} isEdit={isEdit} />
+      <FormProvider {...form}>
+        <div className="_container">
+          <HeaderProfile isEdit={isEdit} setIsEdit={setIsEdit} form={form} />
+          <div className="profile-information">
+            <Bio form={form} isEdit={isEdit} t={t} />
+            <About form={form} isEdit={isEdit} t={t} />
+          </div>
         </div>
-      </div>
+      </FormProvider>
     </div>
   );
 };

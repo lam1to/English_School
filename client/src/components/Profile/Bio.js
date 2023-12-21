@@ -1,32 +1,63 @@
 import { Card } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../..';
+import TextInput from '../Form/TextInput';
+import CustomDatePicker from '../Form/CustomDatePicker';
 
-const Bio = () => {
+const Bio = ({ isEdit, t, form }) => {
   const { user } = useContext(Context);
   return (
-    <Card className="card-bio">
-      <h5>Bio</h5>
+    <Card
+      sx={{
+        boxShadow: '9px 9px 23px 1px rgba(0,0,0,0.1)',
+      }}
+      className="card-bio"
+    >
+      <h5>{t('profile.bio')}</h5>
       <hr />
       <div>
         <ul>
           <li className="copy">
-            <div>
-              <img src="/img/profile/number.png" alt="number" />
-              <p>+375 (29) 000-00-00</p>
+            <div className="container-img-value">
+              <div className={`${isEdit ? 'block-img' : 'block-img-normal'}`}>
+                <img width="24px" src="/img/profile/number.png" alt="number" />
+              </div>
+              {isEdit ? (
+                <TextInput
+                  form={form}
+                  name="phone"
+                  small={true}
+                  placeholder="Phone number"
+                />
+              ) : (
+                <p>+375 (29) 000-00-00</p>
+              )}
             </div>
-            <img src="/img/profile/copy.png" />
+            <div
+              style={{ display: `${isEdit && 'none'}` }}
+              className={`${!isEdit && 'block-img-normal'}`}
+            >
+              <img src="/img/profile/copy.png" />
+            </div>
           </li>
           <li className="copy">
-            <div>
+            <div className="container-img-value">
               <img src="/img/profile/email.png" alt="email" />
               <p>{user.user.email}</p>
             </div>
-            <img src="/img/profile/copy.png" />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="/img/profile/copy.png" />
+            </div>
           </li>
           <li>
-            <img src="/img/profile/location.png" alt="point" />
-            <p>Belarus, Gomel</p>
+            <div className={`${isEdit ? 'block-img' : 'block-img-normal'}`}>
+              <img width="24px" src="/img/profile/location.png" alt="point" />
+            </div>
+            {isEdit ? (
+              <CustomDatePicker form={form} name="location" small={true} />
+            ) : (
+              <p>Belarus, Gomel</p>
+            )}
           </li>
           <li>
             <img src="/img/profile/hb.png" alt="hb" />

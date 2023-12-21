@@ -169,8 +169,21 @@ li {
 
 .input-area {
   flex: 1 0 auto;
+  min-height: 105px;
 }
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+.block-img {
+  display: flex;
+  align-items: start;
+  padding-top: 15px;
+  margin-right: 10px;
+  min-width: 24px;
+}
+.block-img-normal {
+  display: flex;
+  align-items: center;
 }

@@ -9,9 +9,10 @@ const TextInput = ({
   isPassword,
   rows,
   placeholder,
+  small,
 }) => {
   return (
-    <div className="input-area">
+    <div style={{ minHeight: `${small && '0px'}` }} className="input-area">
       <div className="label_input">{nameField}</div>
       <TextField
         multiline={rows ? true : false}
@@ -22,7 +23,10 @@ const TextInput = ({
         sx={{
           backgroundColor: '#F6F7FF',
           borderRadius: '10px',
-          width: { xs: '100%', lg: `${rows ? '426px' : '300px'}` },
+          width: {
+            xs: '100%',
+            lg: `${rows ? '426px' : small ? '200px' : '300px'}`,
+          },
           height: `${rows ? 'none' : '54px'}`,
           '.MuiOutlinedInput-input': {
             cursor: 'pointer',

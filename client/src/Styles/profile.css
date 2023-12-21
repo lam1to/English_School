@@ -33,8 +33,10 @@
 .card-bio ul li {
   display: flex;
 }
-.card-bio ul .copy div {
+.card-bio ul .copy .container-img-value {
   display: flex;
+  flex: 1 0 auto;
+  margin-right: 5px;
 }
 .card-bio ul .copy {
   justify-content: space-between;

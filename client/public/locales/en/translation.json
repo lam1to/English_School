@@ -72,5 +72,15 @@
     },
     "singin": "SIGN IN",
     "singup": "SIGN UP"
+  },
+  "profile": {
+    "bio": "Bio",
+    "about": {
+      "label": "About",
+      "english_level": "English level",
+      "languages": "Languages",
+      "fun_facts": "Fun facts",
+      "about_me": "About me"
+    }
   }
 }

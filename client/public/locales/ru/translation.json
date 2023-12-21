@@ -73,5 +73,15 @@
     },
     "signin": "ВХОД",
     "signup": "РЕГИСТРАЦИЯ"
+  },
+  "profile": {
+    "bio": "Личная информация",
+    "about": {
+      "label": "О себе",
+      "english_level": "Уровень",
+      "languages": "Язык",
+      "fun_facts": "Смешной факт",
+      "about_me": "О мне"
+    }
   }
 }

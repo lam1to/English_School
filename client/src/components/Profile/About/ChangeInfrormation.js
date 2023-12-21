@@ -3,11 +3,11 @@ import CustomAutoComplete from '../../Form/CustomAutoComplete';
 import TextInput from '../../Form/TextInput';
 import { ProfileConstants } from '../Constants';
 
-const ChangeInfrormation = ({ form }) => {
+const ChangeInfrormation = ({ form, t }) => {
   return (
     <div className="about-change-information">
       <div className="item">
-        <div className="item-label">English level</div>
+        <div className="item-label">{t('profile.about.english_level')}</div>
         <CustomAutoComplete
           form={form}
           placeholder="B1-Intermediate"
@@ -23,7 +23,7 @@ const ChangeInfrormation = ({ form }) => {
         />
       </div>
       <div className="item">
-        <div className="item-label">Languages</div>
+        <div className="item-label">{t('profile.about.languages')}</div>
         <CustomAutoComplete
           isMultiple={true}
           data={ProfileConstants.LANGUAGES}
@@ -33,7 +33,7 @@ const ChangeInfrormation = ({ form }) => {
         />
       </div>
       <div className="item mb-20">
-        <div className="item-label">Fun facts</div>
+        <div className="item-label">{t('profile.about.fun_facts')}</div>
         <TextInput
           rows={7}
           placeholder="Write a couple of fun facts about yourself"
@@ -42,7 +42,7 @@ const ChangeInfrormation = ({ form }) => {
         />
       </div>
       <div className="item mb-20">
-        <div className="item-label">About me</div>
+        <div className="item-label">{t('profile.about.about_me')}</div>
         <TextInput
           rows={7}
           placeholder="Write a little about yourself"
