@@ -139,6 +139,7 @@ body {
 }
 .content {
   flex: 1 0 auto;
+  margin-top: 150px;
 }
 
 .error-field {

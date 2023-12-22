@@ -23,3 +23,20 @@
 .call-action-content button {
   margin-top: 55px;
 }
+
+@media (max-width: 576px) {
+  /* flex-direction: column; */
+  .call-to-action {
+    flex-direction: column;
+  }
+  .call-action-content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .call-action-content h5,
+  p {
+    text-align: center;
+  }
+}

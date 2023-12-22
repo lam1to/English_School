@@ -33,3 +33,34 @@
   top: 0;
   left: 50%;
 }
+
+@media (max-width: 1250px) {
+  .call-to-action2-container h5 {
+    width: 250px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 992px) {
+  .call-to-action2-container div {
+    flex-direction: column;
+    align-items: center;
+  }
+  .call-to-action2-container h5 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .call-to-action2-container div img {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .call-to-action2-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .call-to-action2-container img {
+    margin: 0px 0px 50px 20px;
+  }
+}

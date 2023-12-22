@@ -1,24 +1,21 @@
-.vocabularyCap_container {
-
-}
 .vocabularyCap-title {
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 37px;
-    /* identical to box height */
-    color: #002EA6;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 37px;
+  /* identical to box height */
+  color: #002ea6;
 }
 .vocabularyCap-description {
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 30px;
-    color: #000000;
-    margin-top: 41px;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
+  margin-top: 41px;
 }
 .vocabularyCap-sub_title {
-    margin-top: 41px;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 30px;
-    color: #000000;
+  margin-top: 41px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
 }

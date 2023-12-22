@@ -11,6 +11,7 @@ const CustomAutoComplete = ({
   isMultiple,
   data,
   placeholder,
+  defaultValue,
 }) => {
   const style = {
     backgroundColor: '#F6F7FF',
@@ -50,8 +51,10 @@ const CustomAutoComplete = ({
             <Autocomplete
               {...field}
               placeholder={placeholder}
+              // value={field.value}
               multiple
               limitTags={2}
+              // defaultValue={defaultValue && defaultValue}
               isOptionEqualToValue={(option, value) => option.id === value.id}
               getOptionLabel={(option) => option.label || ''}
               onChange={(e, item) => {
@@ -71,6 +74,7 @@ const CustomAutoComplete = ({
           placeholder={placeholder}
           render={({ field }) => (
             <Autocomplete
+              {...field}
               isOptionEqualToValue={(option, value) => option.id === value.id}
               onChange={(e, item) => {
                 field.onChange(item);

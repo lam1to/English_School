@@ -1,8 +1,22 @@
+import { updateUserInfo } from '../../http/userAPI';
 import CustomButton from '../Form/CustomButton';
+import { Context } from '../..';
+import { useContext } from 'react';
 
 const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
-  const onSubmit = (data) => {
+  const { user } = useContext(Context);
+  const onSubmit = async (data) => {
     console.log('dat2a = ', data);
+    const payload = {
+      ...data,
+      birhday: data.hb,
+      languages: data.languages.map((oneL) => oneL.label).join(),
+      englishLevel: data.englishLevel.label,
+      userId: user.user.id,
+    };
+    console.log('payload = ', payload);
+    await updateUserInfo(payload);
+    setIsEdit(false);
   };
   return (
     <div className="header-profile">

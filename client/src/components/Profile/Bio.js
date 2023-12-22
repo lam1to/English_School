@@ -54,14 +54,25 @@ const Bio = ({ isEdit, t, form }) => {
               <img width="24px" src="/img/profile/location.png" alt="point" />
             </div>
             {isEdit ? (
-              <CustomDatePicker form={form} name="location" small={true} />
+              <TextInput
+                form={form}
+                name="location"
+                small={true}
+                placeholder="Birthday"
+              />
             ) : (
               <p>Belarus, Gomel</p>
             )}
           </li>
           <li>
-            <img src="/img/profile/hb.png" alt="hb" />
-            <p>December 24</p>
+            <div className={`${isEdit ? 'block-img' : 'block-img-normal'}`}>
+              <img src="/img/profile/hb.png" alt="hb" />
+            </div>
+            {isEdit ? (
+              <CustomDatePicker form={form} name="hb" small={true} />
+            ) : (
+              <p>December 24</p>
+            )}
           </li>
         </ul>
       </div>

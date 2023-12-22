@@ -46,7 +46,7 @@ const ChangeInfrormation = ({ form, t }) => {
         <TextInput
           rows={7}
           placeholder="Write a little about yourself"
-          name="aboutMe"
+          name="about"
           form={form}
         />
       </div>

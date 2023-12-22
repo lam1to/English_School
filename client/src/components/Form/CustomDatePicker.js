@@ -37,6 +37,7 @@ const CustomDatePicker = ({ form, name, rules, nameField, small }) => {
       <Controller
         control={form.control}
         name={name}
+        defaultValue={new Date()}
         render={({ field }) => (
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
