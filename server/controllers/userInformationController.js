@@ -14,20 +14,39 @@ class userInformationController {
     }
   }
   async update(req, res) {
+    const userMain = await User.findOne({
+      where: {
+        id: +req.body.userId,
+      },
+    });
     console.log('req in update = ', req.body);
     const userInfo = await UserInformation.findOne({
       where: {
         userId: req.body.userId,
       },
     });
-    const date = new Date(req.body.birhday);
     if (userInfo === null) {
       const creatUserInfo = await UserInformation.create(req.body);
-      return res.json(creatUserInfo);
+      return res.json({
+        ...creatUserInfo,
+        name: userMain.userName,
+        lastName: userMain.lastName,
+        email: userMain.email,
+      });
     }
-
-    await userInfo.update(req.body);
-    return res.json(userInfo);
+    await userInfo.update({ ...userInfo, ...req.body });
+    console.log('вщзвращаем = ', {
+      ...userInfo.dataValues,
+      name: userMain.userName,
+      lastName: userMain.lastName,
+      email: userMain.email,
+    });
+    return res.json({
+      ...userInfo.dataValues,
+      name: userMain.userName,
+      lastName: userMain.lastName,
+      email: userMain.email,
+    });
   }
 
   async updateImg(req, res) {
@@ -46,7 +65,8 @@ class userInformationController {
         await userInfo.update({
           img: fileName,
         });
-        return res.json(userInfo);
+        console.log('вщзвращаем = ', userInfo);
+        return res.json({ img: userInfo.dataValues.img });
       }
     } catch (e) {
       next(ApiError.badRequest('произошла ошибка'));
@@ -75,6 +95,7 @@ class userInformationController {
             ...userInfros.dataValues,
             name: userMain.userName,
             lastName: userMain.lastName,
+            email: userMain.email,
           };
           console.log('retData = ', retData);
           return res.json(retData);

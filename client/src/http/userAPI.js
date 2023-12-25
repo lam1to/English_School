@@ -13,8 +13,8 @@ export const registration = async (userName, lastName, email, password) => {
   return jwt_decode(data.token);
 };
 
-export const login = async (email, password) => {
-  const { data } = await $host.post('api/user/login', { email, password });
+export const login = async (userName, password) => {
+  const { data } = await $host.post('api/user/login', { userName, password });
   localStorage.setItem('token', data.token);
   return jwt_decode(data.token);
 };
@@ -32,6 +32,7 @@ export const getUserInfo = async (userId) => {
 
 export const updateUserInfo = async (dataUpdate) => {
   const { data } = await $host.post('api/user-information/update', dataUpdate);
+  return data;
 };
 
 export const updateUserImg = async (dataUpdate) => {
@@ -39,4 +40,5 @@ export const updateUserImg = async (dataUpdate) => {
     'api/user-information/update_img',
     dataUpdate
   );
+  return data;
 };

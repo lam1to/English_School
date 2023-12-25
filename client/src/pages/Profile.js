@@ -18,10 +18,10 @@ const Profile = () => {
     defaultValues: {
       englishLevel: ProfileConstants.ENGLISH_LEVEL[0],
       languages: [ProfileConstants.LANGUAGES[0]],
-      funFacts: '',
-      about: '',
-      phone: '',
-      location: '',
+      funFacts: user.user.funFacts ? user.user.funFacts : '',
+      about: user.user.about ? user.user.about : '',
+      phone: user.user.phone ? user.user.phone : '',
+      location: user.user.location ? user.user.location : '',
       hb: new Date(),
     },
     mode: 'onChange',
@@ -29,8 +29,8 @@ const Profile = () => {
   const [t] = useTranslation();
   const [loading, setLoading] = useState(false);
   const [dataUser, setDataUser] = useState({});
-  console.log('dataUser = ', dataUser);
-  useLayoutEffect(() => {
+  console.log('dataUser = ', user);
+  useEffect(() => {
     getDataUser();
   }, [user.user]);
   const getDataUser = async () => {

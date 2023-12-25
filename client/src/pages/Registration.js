@@ -89,6 +89,10 @@ const Registration = () => {
                     value: true,
                     message: `${t('auth.email.label')}`,
                   },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'This is not an email',
+                  },
                 }}
               />
               <TextInput

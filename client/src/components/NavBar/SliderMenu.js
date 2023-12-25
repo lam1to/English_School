@@ -74,7 +74,7 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
                 }`}
               />
               {/* <img src="/img/header/empty.png" /> */}
-              <p>{user.user.name}</p>
+              <p>{user.user.name ? user.user.name : user.user.email}</p>
             </Link>
             {/* </div> */}
             <div onClick={handleClose} className="link">

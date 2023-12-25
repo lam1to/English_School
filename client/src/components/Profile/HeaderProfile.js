@@ -17,7 +17,12 @@ const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
       userId: user.user.id,
     };
     console.log('payload = ', payload);
-    await updateUserInfo(payload);
+    await updateUserInfo(payload).then((res) => {
+      console.log('res change = ', res);
+      if (res) {
+        user.setUser({ ...user, ...res });
+      }
+    });
     setIsEdit(false);
   };
   const selectImg = async (e) => {
@@ -27,7 +32,10 @@ const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
       formData.append('img', e.target.files[0]);
       formData.append('userId', user.user.id);
       await updateUserImg(formData).then((response) => {
-        user.setUser({ ...user.user, ...response });
+        console.log('response = ', response);
+        console.log('user in update img = ', { ...user.user });
+        console.log('change = ', { ...user.user, img: response.img });
+        user.setUser({ ...user.user, img: response.img });
       });
     }
   };
@@ -61,10 +69,9 @@ const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
         </div>
         <div className="fio-level">
           <h5>
-            {user.user &&
-              user.user.name &&
-              user.user.lastName &&
-              `${user.user.name} ${user.user.lastName}`}
+            {user.user && user.user.name && user.user.lastName
+              ? `${user.user.name} ${user.user.lastName}`
+              : user.user.email}
           </h5>
           <p>B1 - Intermediate</p>
         </div>
