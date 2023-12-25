@@ -2,7 +2,13 @@ import { Button } from '@mui/material';
 import picture1 from '../../img/callToAction/picture1.png';
 import CustomButton from '../Form/CustomButton';
 import '../../Styles/callToAction.css';
+import { useContext } from 'react';
+import { Context } from '../..';
+import { useNavigate } from 'react-router-dom';
+import { LOGIN_ROUTE, VOCABULARY_ROUTE } from '../../utils/consts';
 const CallToAction = ({ t }) => {
+  const { user } = useContext(Context);
+  const navigate = useNavigate();
   return (
     <section className="call-to-action">
       <div className="picture">
@@ -19,7 +25,12 @@ const CallToAction = ({ t }) => {
           isOutline={false}
           isSmall={false}
           onClick={() => {
-            console.log('xui');
+            console.log('зашли 1 ');
+            if (user.isAuth) {
+              navigate(VOCABULARY_ROUTE);
+            } else {
+              navigate(LOGIN_ROUTE);
+            }
           }}
           title={t('button.start')}
         />

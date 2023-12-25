@@ -7,18 +7,25 @@ import './Styles/app.css';
 import WebFont from 'webfontloader';
 import { observer } from 'mobx-react-lite';
 import { Context } from '.';
-import { check } from './http/userAPI';
+import { check, getUserInfo, updateUserInfo } from './http/userAPI';
 import Spinner from 'react-bootstrap/Spinner';
 import Footer from './components/Footer';
 
 const App = observer(() => {
   const { user } = useContext(Context);
   const [loading, setLoading] = useState(true);
-
+  console.log('user in app = ', user);
   useEffect(() => {
     check()
       .then((data) => {
-        user.setUser(data);
+        console.log('data = ', data);
+        data.id
+          ? getUserInfo(data.id).then((resUserInfo) => {
+              console.log('resUserInfo = ', resUserInfo);
+              const { id, userId, ...anotherData } = resUserInfo;
+              user.setUser({ ...data, ...anotherData });
+            })
+          : user.setUser(data);
         user.setIsAuth(true);
       })
       .finally(() => setLoading(false));

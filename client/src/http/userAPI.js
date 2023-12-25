@@ -26,10 +26,17 @@ export const check = async () => {
 };
 
 export const getUserInfo = async (userId) => {
-  const { data } = await $host.get('api/user-information/');
+  const { data } = await $host.get(`api/user-information/${userId}`);
   if (data) return data;
 };
 
 export const updateUserInfo = async (dataUpdate) => {
   const { data } = await $host.post('api/user-information/update', dataUpdate);
+};
+
+export const updateUserImg = async (dataUpdate) => {
+  const { data } = await $host.post(
+    'api/user-information/update_img',
+    dataUpdate
+  );
 };

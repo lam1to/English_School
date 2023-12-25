@@ -4,7 +4,8 @@ const userInformationController = require('../controllers/userInformationControl
 // const checkRole = require('../middleware/checkRoleMiddleware')
 
 router.post('/', userInformationController.create);
-router.get('/', userInformationController.getInformation);
+router.get('/:id', userInformationController.getInformation);
 router.post('/update', userInformationController.update);
+router.post('/update_img', userInformationController.updateImg);
 
 module.exports = router;

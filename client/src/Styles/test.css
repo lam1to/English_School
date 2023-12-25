@@ -132,3 +132,28 @@
     /* margin-right: 20px; */
   }
 }
+
+.finish-button-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.no-right {
+  color: red;
+}
+.right {
+  color: green;
+}
+
+.statistics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px 0px;
+}
+.statistics span {
+  margin-left: 5px;
+  color: green;
+}

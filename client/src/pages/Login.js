@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '..';
-import { login } from '../http/userAPI';
+import { getUserInfo, login } from '../http/userAPI';
 import { VOCABULARY_ROUTE } from '../utils/consts';
 import { Box, Button, Card, Stack, TextField } from '@mui/material';
 import auth_img from '../img/auth_img.png';
@@ -23,17 +23,24 @@ const Login = () => {
     },
     mode: 'onChange',
   });
+
   const onSubmit = async (mainData) => {
     console.log('data', mainData);
     try {
       let data;
-      data = await login(mainData.name, mainData.password);
-      console.log(data);
-      user.setUser(data);
-      user.setIsAuth(true);
-      console.log('user. role = ', user.user.role);
-      user.setRole(user.user.role);
-      navigate(VOCABULARY_ROUTE);
+      await login(mainData.name, mainData.password).then((respLogin) => {
+        respLogin.id
+          ? getUserInfo(respLogin.id).then((resUserInfo) => {
+              console.log('resUserInfo = ', resUserInfo);
+              const { id, userId, ...anotherData } = resUserInfo;
+              user.setUser({ ...data, ...anotherData });
+            })
+          : user.setUser(respLogin);
+        user.setIsAuth(true);
+        console.log('user. role = ', user.user.role);
+        user.setRole(user.user.role);
+        navigate(VOCABULARY_ROUTE);
+      });
     } catch (e) {
       alert(e.response.data.message);
     }

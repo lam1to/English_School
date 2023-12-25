@@ -4,8 +4,22 @@ import { Context } from '../..';
 import TextInput from '../Form/TextInput';
 import CustomDatePicker from '../Form/CustomDatePicker';
 
-const Bio = ({ isEdit, t, form }) => {
+const Bio = ({ isEdit, t, form, userData }) => {
   const { user } = useContext(Context);
+
+  const copyData = (flag) => {
+    switch (flag) {
+      case 0:
+        navigator.clipboard.writeText(userData.phone);
+        break;
+      case 1:
+        navigator.clipboard.writeText(user.user.email);
+        break;
+      default:
+        navigator.clipboard.writeText(this.state.textToCopy);
+        break;
+    }
+  };
   return (
     <Card
       sx={{
@@ -30,11 +44,17 @@ const Bio = ({ isEdit, t, form }) => {
                   placeholder="Phone number"
                 />
               ) : (
-                <p>+375 (29) 000-00-00</p>
+                <p>{userData ? userData.phone : '+375 (29) 000-00-00'}</p>
               )}
             </div>
             <div
-              style={{ display: `${isEdit && 'none'}` }}
+              style={{
+                display: `${isEdit ? 'none' : 'block'}`,
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                copyData(0);
+              }}
               className={`${!isEdit && 'block-img-normal'}`}
             >
               <img src="/img/profile/copy.png" />
@@ -45,7 +65,16 @@ const Bio = ({ isEdit, t, form }) => {
               <img src="/img/profile/email.png" alt="email" />
               <p>{user.user.email}</p>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                copyData(1);
+              }}
+            >
               <img src="/img/profile/copy.png" />
             </div>
           </li>
@@ -58,10 +87,10 @@ const Bio = ({ isEdit, t, form }) => {
                 form={form}
                 name="location"
                 small={true}
-                placeholder="Birthday"
+                placeholder="Location"
               />
             ) : (
-              <p>Belarus, Gomel</p>
+              <p>{userData ? userData.location : 'Belarus, Gomel'}</p>
             )}
           </li>
           <li>
@@ -71,7 +100,7 @@ const Bio = ({ isEdit, t, form }) => {
             {isEdit ? (
               <CustomDatePicker form={form} name="hb" small={true} />
             ) : (
-              <p>December 24</p>
+              <p>{userData ? userData.birthday : 'December 24'}</p>
             )}
           </li>
         </ul>

@@ -31,6 +31,7 @@ const NavBar = observer(() => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const { user } = useContext(Context);
   const [t, i18n] = useTranslation();
   return (
@@ -55,7 +56,9 @@ const NavBar = observer(() => {
                 <div className="header_buttom" onClick={handleClick}>
                   {t('header.account')}
                 </div>
-                <div className="header_buttom">{user.user.email}</div>
+                <div className="header_buttom">
+                  {user.user.name ? user.user.name : user.user.email}
+                </div>
               </div>
               <SliderMenu anchorEl={anchorEl} handleClose={handleClose} />
             </>

@@ -82,5 +82,9 @@
       "fun_facts": "Fun facts",
       "about_me": "About me"
     }
+  },
+  "test": {
+    "topic": "Select topic",
+    "level": "Select your English level"
   }
 }

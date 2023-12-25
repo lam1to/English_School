@@ -63,8 +63,18 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
               className="slider-menu-user"
               to={PROFILE_ROUTE}
             >
-              <img src="/img/header/empty.png" />
-              <p>{user.user.email}</p>
+              <img
+                style={{ borderRadius: '20px' }}
+                width="64px"
+                height="64px"
+                src={`${
+                  user.user.img
+                    ? `${process.env.REACT_APP_API_URL}${user.user.img}`
+                    : '/img/header/empty.png'
+                }`}
+              />
+              {/* <img src="/img/header/empty.png" /> */}
+              <p>{user.user.name}</p>
             </Link>
             {/* </div> */}
             <div onClick={handleClose} className="link">

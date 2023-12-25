@@ -1,8 +1,16 @@
 import CustomButton from '../../Form/CustomButton';
 import '../../../Styles/callToAction2.css';
+import { redirect, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../../..';
+import { LOGIN_ROUTE, VOCABULARY_ROUTE } from '../../../utils/consts';
+
 //@ts-check
 
 const CallToAction2 = ({ t }) => {
+  const { user } = useContext(Context);
+  const navigate = useNavigate();
+  console.log('user = ', user);
   return (
     <section className="call-to-action2">
       <div className="_container call-to-action2-container">
@@ -19,7 +27,14 @@ const CallToAction2 = ({ t }) => {
             isOutline={false}
             isSmall={false}
             onClick={() => {
-              console.log('callToActiion2');
+              console.log('зашли 1 ');
+              if (user.isAuth) {
+                console.log('зашли');
+                console.log('router = ', redirect);
+                navigate(VOCABULARY_ROUTE);
+              } else {
+                navigate(LOGIN_ROUTE);
+              }
             }}
             title={t('button.start')}
           />

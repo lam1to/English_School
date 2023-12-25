@@ -19,11 +19,12 @@ const UserInformation = sequelize.define('userInformation', {
   languages: { type: DataTypes.STRING, allowNull: true },
   funFacts: { type: DataTypes.STRING, allowNull: true },
   about: { type: DataTypes.STRING, allowNull: true },
+  img: { type: DataTypes.STRING, allowNull: true, defaultValue: '' },
 });
 
 const Test = sequelize.define('test', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  topic: { type: DataTypes.STRING, unique: true },
+  topic: { type: DataTypes.STRING, unique: false },
   difficulte: { type: DataTypes.STRING, defaultValue: 'easy' },
   level: { type: DataTypes.STRING, defaultValue: 'A1' },
   sTopic: { type: DataTypes.STRING, defaultValue: 'Articles' },
@@ -37,6 +38,7 @@ const Question = sequelize.define('question', {
 const Answer = sequelize.define('answer', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   content: { type: DataTypes.STRING },
+  isRight: { type: DataTypes.BOOLEAN },
 });
 
 const Vocabulary = sequelize.define('vocabulary', {

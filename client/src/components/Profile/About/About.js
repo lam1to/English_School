@@ -2,7 +2,7 @@ import { Card } from '@mui/material';
 import StaticInformation from './StaticInformation';
 import ChangeInfrormation from './ChangeInfrormation';
 
-const About = ({ isEdit, form, t }) => {
+const About = ({ isEdit, form, t, userData }) => {
   return (
     <Card
       sx={{
@@ -15,7 +15,7 @@ const About = ({ isEdit, form, t }) => {
       {isEdit ? (
         <ChangeInfrormation t={t} form={form} />
       ) : (
-        <StaticInformation t={t} />
+        <StaticInformation userData={userData} t={t} />
       )}
     </Card>
   );

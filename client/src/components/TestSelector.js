@@ -4,10 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '..';
 import CustomAutoComplete from './Form/CustomAutoComplete';
 import { ProfileConstants } from './Profile/Constants';
+import { useTranslation } from 'react-i18next';
 const TestSelector = observer(({ form }) => {
   const { test } = useContext(Context);
   const levelSelectRef = useRef(null);
   const topicSelectRef = useRef(null);
+  const [t] = useTranslation();
   return (
     <div className="block_select_level">
       <div className="select_level-container _container">
@@ -18,7 +20,7 @@ const TestSelector = observer(({ form }) => {
               placeholder="B1-Intermediate"
               name="currLevel"
               isMultiple={false}
-              nameField="Select your English level"
+              nameField={t('test.level')}
               data={ProfileConstants.ENGLISH_LEVEL}
               defaultValue={ProfileConstants.ENGLISH_LEVEL[0]}
               // rules={{
@@ -53,7 +55,7 @@ const TestSelector = observer(({ form }) => {
               name="currTopic"
               isMultiple={false}
               defaultValue={ProfileConstants.TOPIC[0]}
-              nameField="Select topic"
+              nameField={t('test.topic')}
               data={ProfileConstants.TOPIC}
             />
             {/* <div className="block_drop-down_menu-title">Select topic</div>
