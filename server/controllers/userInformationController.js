@@ -19,7 +19,7 @@ class userInformationController {
         id: +req.body.userId,
       },
     });
-    console.log('req in update = ', req.body);
+    // console.log('req in update = ', req.body);
     const userInfo = await UserInformation.findOne({
       where: {
         userId: req.body.userId,
@@ -35,12 +35,12 @@ class userInformationController {
       });
     }
     await userInfo.update({ ...userInfo, ...req.body });
-    console.log('вщзвращаем = ', {
-      ...userInfo.dataValues,
-      name: userMain.userName,
-      lastName: userMain.lastName,
-      email: userMain.email,
-    });
+    // console.log('вщзвращаем = ', {
+    //   ...userInfo.dataValues,
+    //   name: userMain.userName,
+    //   lastName: userMain.lastName,
+    //   email: userMain.email,
+    // });
     return res.json({
       ...userInfo.dataValues,
       name: userMain.userName,
@@ -53,7 +53,7 @@ class userInformationController {
     try {
       const { img } = req.files;
       const { userId } = req.body;
-      console.log('img = ', img, 'userId = ', userId);
+      // console.log('img = ', img, 'userId = ', userId);
       const userInfo = await UserInformation.findOne({
         where: {
           userId: userId,
@@ -65,7 +65,7 @@ class userInformationController {
         await userInfo.update({
           img: fileName,
         });
-        console.log('вщзвращаем = ', userInfo);
+        // console.log('вщзвращаем = ', userInfo);
         return res.json({ img: userInfo.dataValues.img });
       }
     } catch (e) {
@@ -75,15 +75,15 @@ class userInformationController {
 
   async getInformation(req, res) {
     const { id } = req.params;
-    console.log('id= ', id);
-    if (id !== 'undefined') {
+    // console.log('id= ', id);
+    if (id !== 'undefined' && id && id !== undefined) {
       const userMain = await User.findOne({
         where: {
           id: +id,
         },
       });
-      console.log('userMain = ', userMain);
-      console.log('req = ', typeof +id);
+      // console.log('userMain = ', userMain);
+      // console.log('req = ', typeof +id);
       if (userMain !== null) {
         const userInfros = await UserInformation.findOne({
           where: {
@@ -93,14 +93,16 @@ class userInformationController {
         if (userInfros !== null) {
           const retData = {
             ...userInfros.dataValues,
+            id: userMain.id,
             name: userMain.userName,
             lastName: userMain.lastName,
             email: userMain.email,
           };
-          console.log('retData = ', retData);
+          // console.log('retData = ', retData);
           return res.json(retData);
         } else {
           return res.json({
+            id: userMain.id,
             name: userMain.userName,
             lastName: userMain.lastName,
           });

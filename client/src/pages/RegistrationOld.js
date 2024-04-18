@@ -8,7 +8,7 @@ import { MAIN_ROUTE, VOCABULARY_ROUTE } from '../utils/consts';
 //@ts-check
 
 const Registration = observer(() => {
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -20,8 +20,8 @@ const Registration = observer(() => {
       let data;
       data = await registration(userName, lastName, email, password);
       console.log(data);
-      user.setUser(data);
-      user.setIsAuth(true);
+      userStore.setUser(data);
+      userStore.setIsAuth(true);
       navigate(VOCABULARY_ROUTE);
     } catch (e) {
       alert(e.response.data.message);
@@ -77,10 +77,7 @@ const Registration = observer(() => {
               </form>
             </div>
             <a className="block_login-link_button">
-              <div
-                onClick={signUp}
-                className="block_login-button blue_button-little"
-              >
+              <div onClick={signUp} className="block_login-button blue_button-little">
                 SIGN UP
               </div>
             </a>

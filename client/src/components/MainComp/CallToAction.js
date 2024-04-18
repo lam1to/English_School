@@ -7,7 +7,7 @@ import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, VOCABULARY_ROUTE } from '../../utils/consts';
 const CallToAction = ({ t }) => {
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
   const navigate = useNavigate();
   return (
     <section className="call-to-action">
@@ -25,8 +25,8 @@ const CallToAction = ({ t }) => {
           isOutline={false}
           isSmall={false}
           onClick={() => {
-            console.log('зашли 1 ');
-            if (user.isAuth) {
+            // console.log('зашли 1 ');
+            if (userStore.isAuth) {
               navigate(VOCABULARY_ROUTE);
             } else {
               navigate(LOGIN_ROUTE);

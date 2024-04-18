@@ -13,7 +13,7 @@ import CustomButton from '../components/Form/CustomButton';
 import { useTranslation } from 'react-i18next';
 
 const Registration = () => {
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
   const navigate = useNavigate();
   const form = useForm({
     defaultValues: {
@@ -33,8 +33,8 @@ const Registration = () => {
         mainData.password
       );
       console.log(data);
-      user.setUser(data);
-      user.setIsAuth(true);
+      userStore.setUser(data);
+      userStore.setIsAuth(true);
       navigate(VOCABULARY_ROUTE);
     } catch (e) {
       alert(e.response.data.message);
@@ -48,8 +48,7 @@ const Registration = () => {
           sx={{
             width: '80%',
             borderRadius: '20px',
-            boxShadow:
-              ' 1px 1px 10px 1px rgba(0, 0, 0, 0.1), 30px 30px 0px 2px #e4f3f9',
+            boxShadow: ' 1px 1px 10px 1px rgba(0, 0, 0, 0.1), 30px 30px 0px 2px #e4f3f9',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',

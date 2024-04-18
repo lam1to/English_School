@@ -1,8 +1,14 @@
 import { Card } from '@mui/material';
 import StaticInformation from './StaticInformation';
 import ChangeInfrormation from './ChangeInfrormation';
+import { useContext } from 'react';
+import { Context } from '../../..';
+import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
 
-const About = ({ isEdit, form, t, userData }) => {
+const About = observer(() => {
+  const { userStore } = useContext(Context);
+  const { t } = useTranslation();
   return (
     <Card
       sx={{
@@ -12,12 +18,8 @@ const About = ({ isEdit, form, t, userData }) => {
     >
       <h5>{t('profile.about.label')}</h5>
       <hr />
-      {isEdit ? (
-        <ChangeInfrormation t={t} form={form} />
-      ) : (
-        <StaticInformation userData={userData} t={t} />
-      )}
+      {userStore.isEditMode ? <ChangeInfrormation /> : <StaticInformation />}
     </Card>
   );
-};
+});
 export default About;

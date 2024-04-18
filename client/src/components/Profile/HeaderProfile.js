@@ -2,44 +2,44 @@ import { updateUserImg, updateUserInfo } from '../../http/userAPI';
 import CustomButton from '../Form/CustomButton';
 import { Context } from '../..';
 import { useContext, useRef } from 'react';
+import { useFormContext } from 'react-hook-form';
+import { observer } from 'mobx-react-lite';
 
-const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
-  const { user } = useContext(Context);
+const HeaderProfile = observer(() => {
+  const { userStore } = useContext(Context);
+  const { handleSubmit } = useFormContext();
+  const { user, isEditMode } = userStore;
+  console.log('isEditMode = ', isEditMode);
+  const { id, img, name, lastName, email } = user;
   const onSubmit = async (data) => {
-    console.log('dat2a = ', data);
-    console.log('data date = ', new Date(data.hb).toISOString());
-
+    console.log('data form = ', data);
     const payload = {
       ...data,
       birthday: new Date(data.hb).toISOString(),
       languages: data.languages.map((oneL) => oneL.label).join(),
       englishLevel: data.englishLevel.label,
-      userId: user.user.id,
+      userId: id,
     };
-    console.log('payload = ', payload);
     await updateUserInfo(payload).then((res) => {
-      console.log('res change = ', res);
       if (res) {
-        user.setUser({ ...user, ...res });
+        console.log('res = ', res);
+        const { id, userId, ...newData } = res;
+        userStore.setUser({ ...user, ...newData });
       }
     });
-    setIsEdit(false);
+    userStore.setIsEditMode(false);
   };
   const selectImg = async (e) => {
     if (e.target.files) {
-      console.log('file = ', e.target.files[0]);
       const formData = new FormData();
       formData.append('img', e.target.files[0]);
-      formData.append('userId', user.user.id);
+      formData.append('userId', id);
       await updateUserImg(formData).then((response) => {
-        console.log('response = ', response);
-        console.log('user in update img = ', { ...user.user });
-        console.log('change = ', { ...user.user, img: response.img });
-        user.setUser({ ...user.user, img: response.img });
+        userStore.setUser({ ...user, img: response.img });
       });
     }
   };
-  console.log('user = ', user.user);
+  console.log('user in header profile = ', user);
   const refImg = useRef();
   return (
     <div className="header-profile">
@@ -54,42 +54,29 @@ const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
             style={{ borderRadius: '20px' }}
             width="64px"
             height="64px"
-            src={`${
-              user.user.img
-                ? `${process.env.REACT_APP_API_URL}${user.user.img}`
-                : '/img/header/empty.png'
-            }`}
+            src={`${img ? `${process.env.REACT_APP_API_URL}${img}` : '/img/header/empty.png'}`}
           />
-          <input
-            onChange={selectImg}
-            style={{ display: 'none' }}
-            ref={refImg}
-            type="file"
-          />
+          <input onChange={selectImg} style={{ display: 'none' }} ref={refImg} type="file" />
         </div>
         <div className="fio-level">
-          <h5>
-            {user.user && user.user.name && user.user.lastName
-              ? `${user.user.name} ${user.user.lastName}`
-              : user.user.email}
-          </h5>
+          <h5>{user && name && lastName ? `${name} ${lastName}` : email}</h5>
           <p>B1 - Intermediate</p>
         </div>
       </div>
-      {isEdit ? (
+      {isEditMode ? (
         <div className="header-profile-block-button">
           <CustomButton
             isOutline={true}
             isSmall={true}
             title="Cancel"
-            onClick={() => setIsEdit(false)}
+            onClick={() => userStore.setIsEditMode(false)}
           />
           <CustomButton
             isOutline={false}
             isSmall={true}
             title="Save"
             onClick={() => {
-              form.handleSubmit(onSubmit)();
+              handleSubmit(onSubmit)();
             }}
           />
         </div>
@@ -100,12 +87,12 @@ const HeaderProfile = ({ isEdit, setIsEdit, form }) => {
           isSmall={true}
           title="Edit"
           onClick={() => {
-            setIsEdit(true);
+            userStore.setIsEditMode(true);
             console.log('edit');
           }}
         />
       )}
     </div>
   );
-};
+});
 export default HeaderProfile;

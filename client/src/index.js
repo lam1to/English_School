@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <Context.Provider
       value={{
-        user: new UserStore(),
+        userStore: new UserStore(),
         test: new TestStore(),
         vocabulary: new VocabularyStore(),
         grammar: new GrammarStore(),

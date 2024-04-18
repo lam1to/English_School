@@ -4,25 +4,12 @@ import LogoHeader from '../../img/logo.png';
 
 import '../../Styles/navbar.css';
 import { observer } from 'mobx-react-lite';
-import {
-  ADMIN_ROUTE,
-  EXERCISES_ROUTE,
-  GRAMMAR_ROUTE,
-  LOGIN_ROUTE,
-  MAIN_ROUTE,
-  REGISTR_ROUTE,
-  VOCABULARY_ROUTE,
-} from '../../utils/consts';
+import { LOGIN_ROUTE, MAIN_ROUTE, REGISTR_ROUTE } from '../../utils/consts';
 import { Link } from 'react-router-dom';
 import SliderMenu from './SliderMenu';
 import { useTranslation } from 'react-i18next';
 
 const NavBar = observer(() => {
-  const logOut = () => {
-    user.setUser({});
-    user.setIsAuth(false);
-    localStorage.removeItem('token');
-  };
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,7 +19,8 @@ const NavBar = observer(() => {
     setAnchorEl(null);
   };
 
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
+  const { name, img } = userStore.user;
   const [t, i18n] = useTranslation();
   return (
     <header className="header_main">
@@ -41,7 +29,7 @@ const NavBar = observer(() => {
           <Link to={MAIN_ROUTE} className="header_logo">
             <img src={LogoHeader} alt="logoHeader" />
           </Link>
-          {!user.isAuth ? (
+          {!userStore.isAuth ? (
             <div className="header_row">
               <div className="header_buttom">
                 <Link to={LOGIN_ROUTE}>{t('header.sign-in')}</Link>
@@ -56,8 +44,16 @@ const NavBar = observer(() => {
                 <div className="header_buttom" onClick={handleClick}>
                   {t('header.account')}
                 </div>
-                <div className="header_buttom">
-                  {user.user.name ? user.user.name : user.user.email}
+                <div className="header_buttom">{name ? name : ''}</div>
+                <div style={{ marginLeft: '10px' }}>
+                  <img
+                    style={{ borderRadius: '10px' }}
+                    width="48px"
+                    height="48px"
+                    src={`${
+                      img ? `${process.env.REACT_APP_API_URL}${img}` : '/img/header/empty.png'
+                    }`}
+                  />
                 </div>
               </div>
               <SliderMenu anchorEl={anchorEl} handleClose={handleClose} />

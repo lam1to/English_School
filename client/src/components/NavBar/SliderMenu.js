@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Context } from '../..';
-import LogoHeader from '../../img/logo.png';
 import '../../Styles/sliderMenu.css';
 import {
   ADMIN_ROUTE,
@@ -11,28 +10,25 @@ import {
   VOCABULARY_ROUTE,
 } from '../../utils/consts';
 import { Link } from 'react-router-dom';
-import {
-  ClickAwayListener,
-  Popover,
-  ToggleButtonGroup,
-  ToggleButton,
-} from '@mui/material';
+import { ClickAwayListener, Popover, ToggleButtonGroup, ToggleButton } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
 
-const SliderMenu = ({ anchorEl, handleClose }) => {
+const SliderMenu = observer(({ anchorEl, handleClose }) => {
   const logOut = () => {
-    user.setUser({});
-    user.setIsAuth(false);
+    userStore.setUser({});
+    userStore.setIsAuth(false);
     localStorage.removeItem('token');
   };
+
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
+  const { img, name, email } = userStore.user;
   const { t, i18n } = useTranslation();
 
   const handleChange = (event, selectsLanguage) => {
     i18n.changeLanguage(selectsLanguage);
-    console.log('selectLa = ', selectsLanguage);
   };
   return (
     <Popover
@@ -58,23 +54,15 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
         <div className="slider-menu">
           <div className="slider-menu-cap">
             {/* <div className="slider-menu-user"> */}
-            <Link
-              onClick={handleClose}
-              className="slider-menu-user"
-              to={PROFILE_ROUTE}
-            >
+            <Link onClick={handleClose} className="slider-menu-user" to={PROFILE_ROUTE}>
               <img
                 style={{ borderRadius: '20px' }}
                 width="64px"
                 height="64px"
-                src={`${
-                  user.user.img
-                    ? `${process.env.REACT_APP_API_URL}${user.user.img}`
-                    : '/img/header/empty.png'
-                }`}
+                src={`${img ? `${process.env.REACT_APP_API_URL}${img}` : '/img/header/empty.png'}`}
               />
               {/* <img src="/img/header/empty.png" /> */}
-              <p>{user.user.name ? user.user.name : user.user.email}</p>
+              <p>{name ? name : email}</p>
             </Link>
             {/* </div> */}
             <div onClick={handleClose} className="link">
@@ -83,7 +71,7 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
               </Link>
             </div>
           </div>
-          {user.user.role == 'ADMIN' && (
+          {userStore.role === 'ADMIN' && (
             <div onClick={handleClose} className="slider-item">
               <Link to={ADMIN_ROUTE}> {t('slider.admin')}</Link>
             </div>
@@ -145,5 +133,5 @@ const SliderMenu = ({ anchorEl, handleClose }) => {
       </ClickAwayListener>
     </Popover>
   );
-};
+});
 export default SliderMenu;

@@ -14,7 +14,7 @@ import CustomButton from '../components/Form/CustomButton';
 import { useTranslation } from 'react-i18next';
 
 const Login = () => {
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
   const navigate = useNavigate();
   const form = useForm({
     defaultValues: {
@@ -25,20 +25,21 @@ const Login = () => {
   });
 
   const onSubmit = async (mainData) => {
-    console.log('data', mainData);
+    // console.log('data', mainData);
     try {
       let data;
       await login(mainData.name, mainData.password).then((respLogin) => {
+        // console.log('responseUserLogin = ', respLogin);
         respLogin.id
           ? getUserInfo(respLogin.id).then((resUserInfo) => {
-              console.log('resUserInfo = ', resUserInfo);
+              // console.log('resUserInfo = ', resUserInfo);
               const { id, userId, ...anotherData } = resUserInfo;
-              user.setUser({ ...data, ...anotherData });
+              userStore.setUser({ ...data, ...anotherData });
             })
-          : user.setUser(respLogin);
-        user.setIsAuth(true);
-        console.log('user. role = ', user.user.role);
-        user.setRole(user.user.role);
+          : userStore.setUser(respLogin);
+        userStore.setIsAuth(true);
+        // console.log('user. role = ', respLogin.role);
+        userStore.setRole(respLogin.role);
         navigate(VOCABULARY_ROUTE);
       });
     } catch (e) {
@@ -53,8 +54,7 @@ const Login = () => {
           sx={{
             width: '80%',
             borderRadius: '20px',
-            boxShadow:
-              ' 1px 1px 10px 1px rgba(0, 0, 0, 0.1), 30px 30px 0px 2px #e4f3f9',
+            boxShadow: ' 1px 1px 10px 1px rgba(0, 0, 0, 0.1), 30px 30px 0px 2px #e4f3f9',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',

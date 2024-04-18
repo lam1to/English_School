@@ -70,8 +70,8 @@
       "error_upper": "Must contain at least one uppercase character",
       "error_lower": "Must contain at least one lowercase character"
     },
-    "singin": "SIGN IN",
-    "singup": "SIGN UP"
+    "signin": "SIGN IN",
+    "signup": "SIGN UP"
   },
   "profile": {
     "bio": "Bio",

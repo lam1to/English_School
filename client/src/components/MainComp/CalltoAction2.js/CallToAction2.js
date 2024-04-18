@@ -8,9 +8,9 @@ import { LOGIN_ROUTE, VOCABULARY_ROUTE } from '../../../utils/consts';
 //@ts-check
 
 const CallToAction2 = ({ t }) => {
-  const { user } = useContext(Context);
+  const { userStore } = useContext(Context);
   const navigate = useNavigate();
-  console.log('user = ', user);
+  // console.log('user = ', user);
   return (
     <section className="call-to-action2">
       <div className="_container call-to-action2-container">
@@ -27,10 +27,10 @@ const CallToAction2 = ({ t }) => {
             isOutline={false}
             isSmall={false}
             onClick={() => {
-              console.log('зашли 1 ');
-              if (user.isAuth) {
-                console.log('зашли');
-                console.log('router = ', redirect);
+              // console.log('зашли 1 ');
+              if (userStore.isAuth) {
+                // console.log('зашли');
+                // console.log('router = ', redirect);
                 navigate(VOCABULARY_ROUTE);
               } else {
                 navigate(LOGIN_ROUTE);

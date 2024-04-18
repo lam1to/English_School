@@ -1,9 +1,12 @@
-import { useForm } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import CustomAutoComplete from '../../Form/CustomAutoComplete';
 import TextInput from '../../Form/TextInput';
 import { ProfileConstants } from '../Constants';
+import { useTranslation } from 'react-i18next';
 
-const ChangeInfrormation = ({ form, t }) => {
+const ChangeInfrormation = () => {
+  const { t } = useTranslation();
+  const form = useFormContext();
   return (
     <div className="about-change-information">
       <div className="item">
@@ -27,6 +30,7 @@ const ChangeInfrormation = ({ form, t }) => {
         <CustomAutoComplete
           isMultiple={true}
           data={ProfileConstants.LANGUAGES}
+          s
           placeholder="English"
           name="languages"
           form={form}
@@ -43,12 +47,7 @@ const ChangeInfrormation = ({ form, t }) => {
       </div>
       <div className="item mb-20">
         <div className="item-label">{t('profile.about.about_me')}</div>
-        <TextInput
-          rows={7}
-          placeholder="Write a little about yourself"
-          name="about"
-          form={form}
-        />
+        <TextInput rows={7} placeholder="Write a little about yourself" name="about" form={form} />
       </div>
     </div>
   );

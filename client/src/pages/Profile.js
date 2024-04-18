@@ -4,40 +4,29 @@ import Bio from '../components/Profile/Bio';
 import HeaderProfile from '../components/Profile/HeaderProfile';
 import '../Styles/profile.css';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { ProfileConstants } from '../components/Profile/Constants';
 import Loader from '../components/UI/Loader/Loade';
-import { getUserInfo } from '../http/userAPI';
 import { Context } from '..';
+import { observer } from 'mobx-react-lite';
 
-const Profile = () => {
-  const [isEdit, setIsEdit] = useState(false);
-
-  const { user } = useContext(Context);
+const Profile = observer(() => {
+  const { userStore } = useContext(Context);
+  console.log('dataUser in Profile = ', userStore);
+  const { user } = userStore;
+  const { funFacts, about, phone, location } = user;
   const form = useForm({
     defaultValues: {
       englishLevel: ProfileConstants.ENGLISH_LEVEL[0],
       languages: [ProfileConstants.LANGUAGES[0]],
-      funFacts: user.user.funFacts ? user.user.funFacts : '',
-      about: user.user.about ? user.user.about : '',
-      phone: user.user.phone ? user.user.phone : '',
-      location: user.user.location ? user.user.location : '',
+      funFacts: funFacts ? funFacts : '',
+      about: about ? about : '',
+      phone: phone ? phone : '',
+      location: location ? location : '',
       hb: new Date(),
     },
     mode: 'onChange',
   });
-  const [t] = useTranslation();
   const [loading, setLoading] = useState(false);
-  const [dataUser, setDataUser] = useState({});
-  console.log('dataUser = ', user);
-  useEffect(() => {
-    getDataUser();
-  }, [user.user]);
-  const getDataUser = async () => {
-    const data = await getUserInfo(user.user.id);
-    setDataUser(data);
-  };
-  console.log('info usrr =', user);
   return (
     <div className="profile">
       {loading ? (
@@ -45,15 +34,15 @@ const Profile = () => {
       ) : (
         <FormProvider {...form}>
           <div className="_container">
-            <HeaderProfile isEdit={isEdit} setIsEdit={setIsEdit} form={form} />
+            <HeaderProfile />
             <div className="profile-information">
-              <Bio userData={user.user} form={form} isEdit={isEdit} t={t} />
-              <About userData={user.user} form={form} isEdit={isEdit} t={t} />
+              <Bio />
+              <About />
             </div>
           </div>
         </FormProvider>
       )}
     </div>
   );
-};
+});
 export default Profile;
