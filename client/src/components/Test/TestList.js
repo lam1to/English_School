@@ -10,7 +10,7 @@ import { CONGRATULATION_ROUTE, EXERCISES_ROUTE } from '../../utils/consts';
 import CustomButton from '../Form/CustomButton';
 import { useForm } from 'react-hook-form';
 const TestList = observer(() => {
-  const { test } = useContext(Context);
+  const { testStore } = useContext(Context);
   const params = useParams();
   const [index, setIndex] = useState(0);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const TestList = observer(() => {
   const [testResult, setTestResult] = useState([]);
   useEffect(() => {
     fetchQuestion().then((data) => {
-      test.setQuestion(data);
+      testStore.setQuestion(data);
       console.log('data question = ', data);
       setTestResult([
         ...testF(params.id, data).map((oneItem) => {
@@ -32,7 +32,7 @@ const TestList = observer(() => {
       ]);
     });
     fetchAnswer().then((data) => {
-      test.setAnswer(data);
+      testStore.setAnswer(data);
     });
   }, []);
   const testF = (id, questions) => {
@@ -51,7 +51,7 @@ const TestList = observer(() => {
   return (
     <div>
       <div>
-        {testF(params.id, test.questions).map((question, i) => {
+        {testF(params.id, testStore.questions).map((question, i) => {
           return (
             <QuestionOne
               isTesting={isTesting}
@@ -60,12 +60,12 @@ const TestList = observer(() => {
               key={i}
               question={question}
               i={i + 1}
-              answers={test.answers}
+              answers={testStore.answers}
             />
           );
         })}
       </div>
-      {test.setIndexTest(0)}
+      {testStore.setIndexTest(0)}
       {!isTesting && (
         <div className="statistics">
           Statistics of your response <span> {countRight()}</span>/{testResult.length}

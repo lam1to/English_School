@@ -2,6 +2,7 @@ export const ADMIN_ROUTE = '/admin';
 export const LOGIN_ROUTE = '/login';
 export const REGISTR_ROUTE = '/registration';
 export const EXERCISES_ROUTE = '/exercises';
+export const EXERCISES_ID_ROUTE = '/exercises/:id';
 export const MAIN_ROUTE_OLD = '/mainOld';
 export const MAIN_ROUTE = '/main';
 export const TEST_ROUTE = '/test';

@@ -1,7 +1,13 @@
+import { matchPath, useLocation } from 'react-router-dom';
 import logo from '../img/logo.png';
 import '../Styles/footer.css';
+import { EXERCISES_ID_ROUTE } from '../utils/consts';
+const routeNonVisible = [EXERCISES_ID_ROUTE];
 const Footer = () => {
-  return (
+  const { pathname } = useLocation();
+  const isMatch = routeNonVisible.some((path) => matchPath(path, pathname));
+  console.log('isMatch = ', isMatch);
+  return isMatch ? null : (
     <footer className="footer" id="footer">
       <div className="_container footer-container">
         <div className="logo">

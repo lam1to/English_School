@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
 
-const AnswerOne = ({
-  answer,
-  j,
-  question,
-  setTestResult,
-  isTesting,
-  testResult,
-}) => {
+const AnswerOne = ({ answer, j, question, setTestResult, isTesting, testResult }) => {
   useEffect(() => {
-    if (answer.isRight) {
+    if (answer.isRight && isTesting) {
       setTestResult((prev) => [
         ...prev.map((oneItem) => {
           if (oneItem.id == question.id) {
@@ -31,8 +24,7 @@ const AnswerOne = ({
     });
   };
   const isSelected =
-    testResult.filter((oneItem) => oneItem.id == question.id)[0]?.selected ===
-    answer.id;
+    testResult.filter((oneItem) => oneItem.id == question.id)[0]?.selected === answer.id;
   return (
     <div>
       <div className="answerOne-answer">

@@ -16,7 +16,12 @@ const CircularProgressWithLabel = (props) => {
           justifyContent: 'center',
         }}
       >
-        <Typography variant="caption" component="div" color="text.secondary">
+        <Typography
+          sx={{ color: props?.labelColor || 'unset' }}
+          variant="caption"
+          component="div"
+          color="text.secondary"
+        >
           {`${Math.round(props.value)}%`}
         </Typography>
       </Box>

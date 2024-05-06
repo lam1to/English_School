@@ -8,6 +8,7 @@ const OneQuestion = (props) => {
       sx={{
         flex: '1 1 auto',
         display: 'flex',
+        marginTop: '-90px',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
