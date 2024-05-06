@@ -60,6 +60,15 @@ const Rule = sequelize.define('rule', {
   content: { type: DataTypes.TEXT, allowNull: false },
 });
 
+const Attempt = sequelize.define('attempt', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+});
+
+const QuesstionAttempt = sequelize.define('questionAttempt', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  isRight: { type: DataTypes.BOOLEAN, defaultValue: false },
+});
+
 Grammar.hasMany(Rule, { as: 'rules' });
 Rule.belongsTo(Grammar);
 
@@ -71,6 +80,25 @@ Answer.belongsTo(Question);
 
 User.hasMany(UserInformation);
 UserInformation.belongsTo(User);
+// Attempt - testId
+Test.hasMany(Attempt);
+Attempt.belongsTo(Test);
+
+// Attempt - userId
+User.hasMany(Attempt);
+Attempt.belongsTo(User);
+
+// QuestionAttempt - attemptId
+Attempt.hasMany(QuesstionAttempt);
+QuesstionAttempt.belongsTo(Attempt);
+
+// QuestionAttempt - questionId
+Question.hasMany(QuesstionAttempt);
+QuesstionAttempt.belongsTo(Question);
+
+// QuestionAttempt - answearId
+Answer.hasMany(QuesstionAttempt);
+QuesstionAttempt.belongsTo(Answer);
 
 module.exports = {
   User,
@@ -81,4 +109,6 @@ module.exports = {
   Grammar,
   Rule,
   UserInformation,
+  Attempt,
+  QuesstionAttempt,
 };

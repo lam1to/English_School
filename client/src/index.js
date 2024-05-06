@@ -14,7 +14,7 @@ root.render(
     <Context.Provider
       value={{
         userStore: new UserStore(),
-        test: new TestStore(),
+        testStore: new TestStore(),
         vocabulary: new VocabularyStore(),
         grammar: new GrammarStore(),
       }}

@@ -5,12 +5,8 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '..';
 import { FormProvider, useForm } from 'react-hook-form';
 import { ProfileConstants } from '../components/Profile/Constants';
-
+import '../Styles/exercises.css';
 const Exercises = observer(() => {
-  const { test } = useContext(Context);
-  const [currLevel, setCurrLevel] = useState(test.levelFlags);
-  const [currTopic, setCurrTopic] = useState(test.topicFlags);
-
   const form = useForm({
     defaultValues: {
       currLevel: ProfileConstants.ENGLISH_LEVEL[0],
@@ -28,13 +24,9 @@ const Exercises = observer(() => {
     console.log('level');
   }, [level, topic]);
   return (
-    <div>
+    <div className="exersises-container">
       <FormProvider {...form}>
-        <TestSelector
-          form={form}
-          setLevel={setCurrLevel}
-          setTopic={setCurrTopic}
-        />
+        <TestSelector form={form} />
         <Test level={level} topic={topic} />
       </FormProvider>
     </div>

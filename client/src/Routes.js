@@ -21,6 +21,7 @@ import {
   PROFILE_ROUTE,
 } from './utils/consts';
 import TestPage from './pages/TestPage';
+import NewTestPage from './pages/NewTestPage';
 import Congratulation from './pages/Congratulation';
 import MainOld from './pages/MainOld';
 import Profile from './pages/Profile';
@@ -52,7 +53,8 @@ export const authRoutes = [
   },
   {
     path: EXERCISES_ROUTE + '/:id',
-    Component: TestPage,
+    // Component: TestPage,
+    Component: NewTestPage,
   },
   {
     path: CONGRATULATION_ROUTE,

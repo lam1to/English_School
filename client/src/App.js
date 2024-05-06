@@ -8,6 +8,7 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '.';
 import { check, getUserInfo } from './http/userAPI';
 import Footer from './components/Footer';
+import ActiveTestSnackbar from './components/UI/snackbars/ActiveTestSnackbar';
 
 const App = observer(() => {
   const { userStore } = useContext(Context);
@@ -35,6 +36,7 @@ const App = observer(() => {
         <div className="content">
           <AppRouter />
         </div>
+        <ActiveTestSnackbar />
         <Footer />
       </div>
     </BrowserRouter>

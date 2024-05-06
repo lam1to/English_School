@@ -31,6 +31,9 @@ html {
 #root {
   height: 100%;
 }
+:root {
+  --header-height: 90px;
+}
 /* Выставляем основные настройки по-умолчанию для body */
 body {
   /* min-height: 100vh; */
@@ -139,7 +142,7 @@ body {
 }
 .content {
   flex: 1 0 auto;
-  margin-top: 150px;
+  margin-top: var(--header-height);
 }
 
 .error-field {

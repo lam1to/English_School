@@ -68,8 +68,7 @@ const TestList = observer(() => {
       {test.setIndexTest(0)}
       {!isTesting && (
         <div className="statistics">
-          Statistics of your response <span> {countRight()}</span>/
-          {testResult.length}
+          Statistics of your response <span> {countRight()}</span>/{testResult.length}
         </div>
       )}
       <div className="finish-button-block">

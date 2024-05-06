@@ -23,7 +23,7 @@ const NavBar = observer(() => {
   const { name, img } = userStore.user;
   const [t, i18n] = useTranslation();
   return (
-    <header className="header_main">
+    <header id="header" className="header_main">
       <div className="header_container _container">
         <div className="navbar_block_main">
           <Link to={MAIN_ROUTE} className="header_logo">

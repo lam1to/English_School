@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Context } from '..';
-import '../Styles/test.css';
-import { observer } from 'mobx-react-lite';
-import { fetchTest } from '../http/testAPI';
-import TestOne from './TestOne';
+import React, { useContext, useEffect, useState } from "react";
+import { Context } from "..";
+import "../Styles/test.css";
+import { observer } from "mobx-react-lite";
+import { fetchTest } from "../http/testAPI";
+import TestOne from "./TestOne";
 
 const Test = observer(({ level, topic }) => {
   const [filteredTests, setFilteredTests] = useState([]);
@@ -11,18 +11,16 @@ const Test = observer(({ level, topic }) => {
   useEffect(() => {
     fetchTest().then((data) => {
       setTest(data.rows);
+      setFilteredTests(getFilteredTests(data.rows));
     });
-    setFilteredTests(getFilteredTests());
   }, []);
 
   useEffect(() => {
-    setFilteredTests(getFilteredTests());
+    setFilteredTests(getFilteredTests(test));
   }, [level, topic]);
-  const getFilteredTests = () => {
-    return test?.filter((testToCheck) => {
-      return (
-        testToCheck.sTopic == topic.label && testToCheck.level == level.value
-      );
+  const getFilteredTests = (tests) => {
+    return tests?.filter((testToCheck) => {
+      return testToCheck.sTopic == topic.label && testToCheck.level == level.value;
     });
   };
 
